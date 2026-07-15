@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لعبة قعدة | اللعبة اللي هتبوظ شلتكم</title>
     
-    <!-- الخطوط والأيقونات -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ربط ملف الـ CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,159 +17,243 @@
     </div>
 
     <nav>
-        <div class="logo">قعدة</div>
-        <a href="#order-now" class="nav-btn pulse-btn">اطلب اللعبة</a>
+        <div class="logo-container">
+            <img src="logo.png" alt="لوجو لعبة قعدة" class="brand-logo">
+        </div>
+        <a href="#order-now" class="nav-btn">اطلب اللعبة</a>
     </nav>
 
     <section class="hero reveal">
         <div class="hero-text">
-            <h1>جاهز تفضح صحابك؟<br>اللعبة اللي هتقلب الترابيزة!</h1>
-            <p>18 شخصية، كروت مواقف، أكشن، وفخاخ مستخبية.. قعدة مش مجرد كروت، دي اختبار لسرعة بديهتك وجرأتك وسط الشلة.</p>
-            <div class="price-tag">150 ج.م</div>
-            <br>
-            <a href="#order-now" class="nav-btn pulse-btn" style="padding: 15px 40px; font-size: 1.3rem;">احجز نسختك دلوقتي</a>
+            <div class="tagline">لعبة الكروت الرسمية للـ شِلل</div>
+            <h1>جاهز تفضح<br><span class="gradient-text">صحابك؟</span></h1>
+            <p>18 شخصية مختلفة، كروت مواقف، أكشن، وفخاخ مستخبية.. "قعدة" مش مجرد لعبة كروت عادية، دي اختبار حقيقي لجرأة وسرعة بديهة شلتكم على القهوة أو في اللمة.</p>
+            <div class="hero-actions">
+                <div class="price-tag">150 ج.م</div>
+                <a href="#order-now" class="nav-btn main-action">احجز نسختك دلوقتي</a>
+            </div>
         </div>
-        <div class="hero-img">
-            <img src="image_ed280a.jpg" alt="لعبة قعدة - الكروت والشخصيات" class="real-game-img">
+        <div class="hero-visual">
+            <div class="visual-stack">
+                <img src="game-bg.png" alt="لعبة قعدة" class="hero-main-img">
+                <img src="card-back.png" alt="كارت قعدة" class="floating-card c1">
+                <img src="character-card-back.png" alt="كارت شخصية" class="floating-card c2">
+            </div>
+        </div>
+    </section>
+
+    <section class="container interactive-deck reveal">
+        <div class="deck-header">
+            <span class="sub-title">جرب بنفسك</span>
+            <h2 class="section-title">المس الكروت عشان تقلبها 3D</h2>
+            <p class="deck-desc">دي عينات حقيقية من كروت الأكشن والشخصيات اللي هتلاقيها جوه العلبة. جرب تلعب وتشوف وش الكارت!</p>
+        </div>
+        
+        <div class="cards-3d-wrapper">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="card-back.png" alt="ضهر كارت الأكشن">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="card-face.png" alt="وش كارت الأكشن">
+                    </div>
+                </div>
+                <span class="card-label">كارت أكشن (المواقف)</span>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="character-card-back.png" alt="ضهر كارت الشخصية">
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="character-card-face.png" alt="وش كارت الشخصية">
+                    </div>
+                </div>
+                <span class="card-label">كارت الشخصيات (السرية)</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="container bento-section reveal">
+        <span class="sub-title">تفاصيل العلبة</span>
+        <h2 class="section-title" style="text-align: right;">إيه اللي هيخلي قعدة تسيطر على قعدتكم؟</h2>
+        
+        <div class="bento-grid">
+            <div class="bento-card bento-large qr-bento">
+                <div class="bento-content">
+                    <h3>🤖 كارت الـ QR التفاعلي (مبتخلصش!)</h3>
+                    <p>زهقتوا من نفس الأحكام؟ جوه العلبة هتلاقي كارت عليه QR سري، لما تصوره بيفتحلك صفحة مخفية بتولد أحكام وسيناريوهات جديدة بالـ AI بتتغير كل يوم.. اللعبة عمرها ما هتتحفظ!</p>
+                </div>
+                <div class="bento-visual-qr">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+            </div>
+
+            <div class="bento-card bento-small">
+                <div class="bento-icon-wrapper"><i class="fas fa-users"></i></div>
+                <h3>من 3 لـ 10 لاعبين</h3>
+                <p>العدد المثالي للمقالب والتوريط وسط الشلة.</p>
+            </div>
+
+            <div class="bento-card bento-small">
+                <div class="bento-icon-wrapper"><i class="fas fa-hourglass-half"></i></div>
+                <h3>15 - 30 دقيقة</h3>
+                <p>جيم سريع، حماسي، وريحته فضايح مبيخلصش من غير ضحك.</p>
+            </div>
+
+            <div class="bento-card bento-medium">
+                <h3>🎭 18 شخصية بميكانكس مختلفة</h3>
+                <p>كل لاعب بيسحب شخصية سرية بتديله قدرات خاصة أو فخاخ يقدر ينصبها لصحابه في اللحظة المناسبة.</p>
+                <div class="bento-card-bg-effect"></div>
+            </div>
+
+            <div class="bento-card bento-medium">
+                <h3>💎 كروت مقاومة للبهدلة والمياه</h3>
+                <p>الكروت مطبوعة على ورق فاخر بطبقة سلوفان مطفأ (Matte) عشان تستحمل قعدات القهوة، السوائل، واللعب الحماسي العنيف.</p>
+            </div>
         </div>
     </section>
 
     <section class="weekly-dare reveal">
+        <div class="dare-icon"><i class="fas fa-trophy"></i></div>
         <h3>🏆 تحدي الأسبوع من قعدة</h3>
         <p>"صوّر صاحبك وهو بينفذ حكم (الرقصة الروسية) ونزلها ستوري مع منشن لينا على انستجرام.. وأكتر فيديو هيجيب ريتش هيكسب نسخة مجانية لصحابكم!"</p>
     </section>
 
-    <section class="container reveal">
-        <h2 class="section-title">إزاي تلعب قعدة؟</h2>
-        <div class="grid-layout">
-            <div class="card">
-                <i class="fas fa-hand-paper"></i>
-                <h3>1. اسحب كارت</h3>
-                <p>كل لاعب بيسحب كارت في دوره من غير ما يوريه لحد.</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-bolt"></i>
-                <h3>2. نفذ الحكم</h3>
-                <p>جاوب بصراحة أو نفذ المكتوب، ومفيش مجال للهروب!</p>
-            </div>
-            <div class="card">
-                <i class="fas fa-laugh-squint"></i>
-                <h3>3. افضح صاحبك</h3>
-                <p>استخدم كروت الأكشن عشان تورط صحابك وتكسب أنت.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container features reveal">
-        <h2 class="section-title">ليه قعدة مش زي أي لعبة؟</h2>
-        <div class="grid-layout" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-            <div class="feat-item"><i class="fas fa-users"></i> مناسبة من 3 لـ 10 لاعبين</div>
-            <div class="feat-item"><i class="fas fa-clock"></i> الجيم بياخد من 15 لـ 30 دقيقة</div>
-            <div class="feat-item"><i class="fas fa-theater-masks"></i> 18 شخصية مختلفة</div>
-            <div class="feat-item"><i class="fas fa-redo"></i> مش بتتحفظ، كل جيم سيناريو جديد</div>
-        </div>
-
-        <div class="smart-qr-section reveal">
-            <div class="smart-qr-text">
-                <h3>🤖 كارت الـ QR الذكي (مبتخلصش!)</h3>
-                <p>زهقتوا من نفس الأحكام؟ جوه العلبة هتلاقي كارت عليه QR Code سري. لما بتصوره بموبايلك بيفتحلك صفحة مخفية بتولد سيناريو أو حكم جديد بـ الذكاء الاصطناعي.. الأحكام دي بتتغير كل يوم، يعني اللعبة حرفياً عمرها ما هتتحفظ!</p>
-            </div>
-            <div class="qr-icon">
-                <i class="fas fa-qrcode"></i>
-            </div>
-        </div>
-    </section>
-
     <section class="container reviews reveal">
+        <span class="sub-title">شاهد على الفضائح</span>
         <h2 class="section-title">قالوا إيه بعد ما لعبوا قعدة؟</h2>
-        <div class="grid-layout">
-            <div class="card" style="text-align: right; font-style: italic;">
-                "أنا خسرت 3 من صحابي بسبب اللعبة دي 😂 بجد أحلى لعبة نلعبها على القهوة ومبنزهقش منها!"
-                <h4 style="color: var(--primary-light); margin-top: 15px; font-style: normal;">- أحمد م.</h4>
+        <div class="reviews-asymmetric">
+            <div class="review-block">
+                <p class="quote">"أنا خسرت 3 من صحابي بسبب اللعبة دي 😂 بجد أحلى لعبة نلعبها على القهوة ومبنزهقش منها!"</p>
+                <div class="reviewer">- أحمد م. <span class="stars">★★★★★</span></div>
             </div>
-            <div class="card" style="text-align: right; font-style: italic;">
-                "الأسئلة والأحكام مش طبيعية، الجيم بيقلب بضحك هيستيري، أنصح بيها جداً في أي تجمع."
-                <h4 style="color: var(--primary-light); margin-top: 15px; font-style: normal;">- سارة ع.</h4>
+            <div class="review-block offset">
+                <p class="quote">"الأسئلة والأحكام مش طبيعية، الجيم بيقلب بضحك هيستيري، أنصح بيها جداً في أي تجمع للصحاب."</p>
+                <div class="reviewer">- سارة ع. <span class="stars">★★★★★</span></div>
             </div>
         </div>
     </section>
 
     <section class="container faq reveal">
+        <span class="sub-title">كل التفاصيل</span>
         <h2 class="section-title">أسئلة بتيجي في بالكم</h2>
-        <details>
-            <summary>الشحن بياخد وقت قد إيه؟</summary>
-            <p>الشحن بياخد من يومين لـ 4 أيام عمل حسب محافظتك.</p>
-        </details>
-        <details>
-            <summary>مصاريف الشحن كام؟</summary>
-            <p>مصاريف الشحن ثابتة 40 جنيه للقاهرة والجيزة، و 55 لباقي المحافظات. (ولو طلبت عرض الصحاب الشحن مجاني!).</p>
-        </details>
-        <details>
-            <summary>اللعبة مناسبة لسن كام؟</summary>
-            <p>اللعبة مصممة للشباب، مناسبة جداً لسن 16 سنة فما فوق.</p>
-        </details>
+        <div class="faq-wrapper">
+            <details>
+                <summary>الشحن بياخد وقت قد إيه؟</summary>
+                <p>الشحن بياخد من يومين لـ 4 أيام عمل حسب محافظتك.</p>
+            </details>
+            <details>
+                <summary>مصاريف الشحن كام؟</summary>
+                <p>مصاريف الشحن ثابتة 40 جنيه للقاهرة والجيزة، و 55 لباقي المحافظات. (ولو طلبت عرض الصحاب الشحن مجاني!).</p>
+            </details>
+            <details>
+                <summary>اللعبة مناسبة لسن كام؟</summary>
+                <p>اللعبة مصممة للشباب، مناسبة جداً لسن 16 سنة فما فوق لما تحتويه من جرأة وتحديات صريحة.</p>
+            </details>
+        </div>
         
         <div class="trust-banner">
-            <i class="fas fa-shield-alt"></i> من حقك تفتح الشحنة وتتأكد من اللعبة وجودة الكروت مع المندوب قبل ما تدفع أي حاجة!
+            <i class="fas fa-shield-alt"></i> من حقك تفتح الشحنة وتتأكد من جودة اللعبة والكروت مع المندوب قبل ما تدفع أي مليم!
         </div>
     </section>
 
     <section id="order-now" class="order-section reveal">
-        <div class="glass-form">
-            <h2>أكد طلبك من هنا</h2>
-            <p class="form-sub">هنوصلك اللعبة لحد باب البيت، والدفع لما تستلم!</p>
+        <div class="checkout-split-container">
             
-            <form id="orderForm">
+            <div class="checkout-form-side">
+                <h2>أكد طلبك الآن</h2>
+                <p class="form-sub">الدفع عند الاستلام بعد مراجعة جودة اللعبة مع المندوب</p>
                 
-                <div class="bundles-wrapper">
-                    <label class="bundle-option active" onclick="selectBundle(this, 150)">
-                        <input type="radio" name="bundle" value="علبة واحدة" checked>
-                        <h3>علبة واحدة</h3>
-                        <p>150 ج.م + شحن</p>
-                    </label>
-                    <label class="bundle-option" onclick="selectBundle(this, 280)">
-                        <span class="badge pulse-btn">الأكثر مبيعاً</span>
-                        <input type="radio" name="bundle" value="عرض الصحاب (علبتين)">
-                        <h3>عرض الصحاب (علبتين)</h3>
-                        <p>280 ج.م + <strong>شحن مجاني!</strong></p>
-                    </label>
-                </div>
-
-                <label class="custom-gift-wrapper">
-                    <input type="checkbox" id="customEditionToggle" onchange="updateTotalPrice()">
-                    <div class="custom-gift-text">
-                        <h4>🎁 نسخة الهدية التفصيل (+50 ج.م)</h4>
-                        <p>هنطبعلك كارتين مخصوصين! (هناخد منك الصورة والاسم على الواتساب).</p>
+                <form id="orderForm">
+                    
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="name" required placeholder="الاسم بالكامل (ثلاثي)">
                     </div>
-                </label>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="tel" id="phone" required placeholder="رقم الموبايل (مثال: 01012345678)">
+                        <div id="phone-error" class="error-msg">يرجى كتابة رقم موبايل مصري صحيح (11 رقم)</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <textarea id="address" rows="3" required placeholder="العنوان بالتفصيل الممل (المحافظة - المركز - الشارع - علامة مميزة)"></textarea>
+                    </div>
 
-                <div class="input-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" id="name" required placeholder="الاسم بالكامل (ثلاثي)">
-                </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">إتمام الطلب وتأكيد الحجز</button>
+                </form>
                 
-                <div class="input-group">
-                    <i class="fas fa-phone-alt"></i>
-                    <input type="tel" id="phone" required placeholder="رقم الموبايل (مثال: 01012345678)">
-                    <div id="phone-error" class="error-msg">يرجى كتابة رقم موبايل مصري صحيح (11 رقم)</div>
+                <div id="success-msg"></div>
+                <div id="cooldown-msg">
+                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; display: block; margin-bottom: 10px; color: #f59e0b;"></i>
+                    لقد قمت بطلب اللعبة بالفعل، سنتواصل معك قريباً لتأكيد الأوردر.
                 </div>
-                
-                <div class="input-group">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <textarea id="address" rows="3" required placeholder="العنوان بالتفصيل (المحافظة - المركز - الشارع - علامة مميزة)"></textarea>
-                </div>
-                
-                <div id="total-price-display">الإجمالي: 150 ج.م (غير شامل الشحن)</div>
-
-                <button type="submit" class="submit-btn pulse-btn" id="submitBtn">إتمام الطلب الآن</button>
-            </form>
-            
-            <div id="success-msg"></div>
-            
-            <div id="cooldown-msg">
-                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; display: block; margin-bottom: 10px;"></i>
-                لقد قمت بطلب اللعبة بالفعل، سنتواصل معك قريباً.
             </div>
+
+            <div class="checkout-receipt-side">
+                <div class="receipt-card">
+                    <div class="receipt-header">
+                        <h3>سلة المشتريات 🛍️</h3>
+                        <span class="receipt-date">مباشر</span>
+                    </div>
+                    
+                    <div class="receipt-bundles">
+                        <div class="receipt-bundle-item active" onclick="selectBundle(this, 150)">
+                            <input type="radio" name="bundle" value="علبة واحدة" checked id="b1">
+                            <div class="bundle-details">
+                                <span class="b-title">علبة واحدة من قعدة</span>
+                                <span class="b-desc">مثالية للتجربة مع شلتك الأساسية</span>
+                            </div>
+                            <span class="b-price">150 ج.م</span>
+                        </div>
+
+                        <div class="receipt-bundle-item" onclick="selectBundle(this, 280)">
+                            <span class="best-seller-badge">شحن مجاني 🔥</span>
+                            <input type="radio" name="bundle" value="عرض الصحاب (علبتين)" id="b2">
+                            <div class="bundle-details">
+                                <span class="b-title">عرض الصحاب (علبتين)</span>
+                                <span class="b-desc">علبة ليك وعلبة لصاحبك وشحن مجاني!</span>
+                            </div>
+                            <span class="b-price">280 ج.م</span>
+                        </div>
+                    </div>
+
+                    <div class="receipt-addons">
+                        <label class="addon-checkbox-label">
+                            <input type="checkbox" id="customEditionToggle" onchange="updateTotalPrice()">
+                            <div class="addon-info">
+                                <span class="addon-title">🎁 كروت تخصيص بالاسم والصور (+50 ج.م)</span>
+                                <span class="addon-desc">هنطبعلك كارتين مخصوصين بصورة واسم تختارهم!</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="receipt-totals">
+                        <div class="receipt-row">
+                            <span>سعر الباقة</span>
+                            <span id="receipt-base-price">150 ج.م</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>كروت التخصيص</span>
+                            <span id="receipt-addon-price">0 ج.م</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>مصاريف الشحن</span>
+                            <span id="receipt-shipping-price">حسب المحافظة</span>
+                        </div>
+                        <div class="receipt-row total-row">
+                            <span>الإجمالي الكلي</span>
+                            <span id="total-price-display">150 ج.م</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -179,12 +261,11 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- شريط الطلب العائم للموبايل -->
     <div class="mobile-sticky-cta">
-        <a href="#order-now" class="nav-btn pulse-btn" style="display: block; width: 100%;">اطلب اللعبة دلوقتي</a>
+        <a href="#order-now" class="nav-btn main-action" style="display: block; width: 100%; text-align: center;">اطلب اللعبة دلوقتي</a>
     </div>
 
-    <footer class="reveal">
+    <footer>
         <div class="social-icons">
             <a href="https://www.facebook.com/share/18eyt9MeA4/" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="https://www.instagram.com/a3da.6/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -194,7 +275,6 @@
         <p>جميع الحقوق محفوظة للعبة قعدة &copy; 2026</p>
     </footer>
 
-    <!-- ربط ملف الـ JS -->
     <script src="script.js"></script>
 </body>
 </html>
