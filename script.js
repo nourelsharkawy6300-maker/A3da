@@ -191,3 +191,27 @@ form.addEventListener('submit', e => {
         `;
     }
 });
+
+// ================= 5. حل مشكلة كيبورد الموبايل (Mobile UX Fix) =================
+// الكود ده بيخفي زرار الطلب العائم لما العميل يجي يكتب بياناته عشان الكيبورد ميغطيش على الشاشة
+const mobileCTA = document.querySelector('.mobile-sticky-cta');
+const allInputs = document.querySelectorAll('input[type="text"], input[type="tel"], textarea');
+
+allInputs.forEach(input => {
+    // لما العميل يلمس الخانة عشان يكتب (Focus)
+    input.addEventListener('focus', () => {
+        if (window.innerWidth <= 900) {
+            mobileCTA.style.display = 'none';
+        }
+    });
+    
+    // لما العميل يخلص كتابة ويقفل الكيبورد (Blur)
+    input.addEventListener('blur', () => {
+        if (window.innerWidth <= 900) {
+            // نأخر ظهوره جزء من الثانية عشان الكيبورد يكون نزل تماماً
+            setTimeout(() => {
+                mobileCTA.style.display = 'block';
+            }, 200);
+        }
+    });
+});
