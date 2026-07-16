@@ -2,238 +2,126 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لعبة قعدة | اللعبة اللي هتبوظ شلتكم</title>
-    
-    <!-- الخطوط والأيقونات -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>لعبة قعدة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- ربط ملف الـ CSS المطور V2 -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- شريط الـ FOMO الذكي -->
-    <div class="fomo-banner" id="fomo-banner-container">
-        🔥 الطبعة الأولى قربت تخلص! اطلب خلال <span id="countdown-timer">02:45:00</span> لتأكيد الشحن بكرة الصبح!
-    </div>
+    <!-- الشاشة الرئيسية (App Screen) -->
+    <main class="app-screen">
+        <!-- الهيدر -->
+        <header class="app-header">
+            <img src="logo.png" alt="قعدة" class="app-logo" onerror="this.src='https://via.placeholder.com/100x40/000/fff?text=QA3DA'">
+            <div class="fomo-pill">🔥 الطبعة الأولى قربت تخلص</div>
+        </header>
 
-    <!-- الـ Navbar مع اللوجو الحقيقي -->
-    <nav>
-        <div class="logo-container">
-            <img src="logo.png" alt="لوجو لعبة قعدة" class="brand-logo">
-        </div>
-        <a href="#order-now" class="nav-btn">اطلب اللعبة</a>
-    </nav>
-
-    <!-- [Fold 1] الـ Hero & 3D Interactive Cards (دمج كامل لتقليل الطول) -->
-    <section class="hero reveal">
-        <div class="hero-text">
-            <div class="tagline">لعبة الكروت الرسمية للـ شِلل 🃏</div>
-            <h1>جاهز تفضح<br><span class="gradient-text">صحابك؟</span></h1>
-            <p>18 شخصية سرية، كروت مواقف، وفخاخ مستخرجة من قلب قعدات القهاوي المصرية. "قعدة" مش مجرد لعبة، دي اختبار لسرعة بديهتكم وجرأتكم.</p>
-            <div class="hero-actions">
-                <div class="price-tag">150 ج.م</div>
-                <a href="#order-now" class="nav-btn main-action">احجز نسختك الآن</a>
-            </div>
-        </div>
-        
-        <!-- الكروت التفاعلية 3D مدمجة مباشرة في الهيرو للابهار السريع -->
-        <div class="hero-interactive-visual">
-            <div class="visual-header">
-                <span>المس الكروت عشان تقلبها 3D 👇</span>
-            </div>
-            <div class="cards-3d-wrapper">
-                <!-- الكارت الأول: كارت الأكشن -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="card-back.png" alt="ضهر كارت الأكشن">
-                        </div>
-                        <div class="flip-card-back">
-                            <img src="card-face.png" alt="وش كارت الأكشن">
-                        </div>
-                    </div>
-                    <span class="card-label">كروت المواقف الأكشن</span>
-                </div>
-
-                <!-- الكارت الثاني: كارت الشخصية -->
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="character-card-back.png" alt="ضهر كارت الشخصية">
-                        </div>
-                        <div class="flip-card-back">
-                            <img src="character-card-face.png" alt="وش كارت الشخصية">
-                        </div>
-                    </div>
-                    <span class="card-label">الشخصيات السرية</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- [Fold 2] الـ Compact Bento Grid (3 كروت فقط مركزة جداً ومبهرة) -->
-    <section class="container bento-section reveal">
-        <span class="sub-title">الـ Secret Sauce للعبة</span>
-        <h2 class="section-title">ليه "قعدة" هتسيطر على سهراتكم؟</h2>
-        
-        <div class="bento-grid">
-            <!-- مربع 1 (عريض): كارت الـ QR الذكي -->
-            <div class="bento-card bento-wide qr-bento">
-                <div class="bento-content">
-                    <h3>🤖 كارت الـ QR التفاعلي (اللعبة مبتخلصش!)</h3>
-                    <p>جوه العلبة هتلاقي كارت عليه QR سري، لما تصوره بيفتحلك صفحة مخفية بتولد أحكام وسيناريوهات جديدة بالذكاء الاصطناعي بتتغير تلقائياً كل يوم.. اللعبة عمرها ما هتحفظوها!</p>
-                </div>
-                <div class="bento-visual-qr">
-                    <i class="fas fa-qrcode"></i>
-                </div>
-            </div>
-
-            <!-- مربع 2 (مدمج): قواعد وقوت اللعبة -->
-            <div class="bento-card bento-normal">
-                <div class="bento-icons-row">
-                    <div class="b-icon-item"><i class="fas fa-users"></i> <span>3 - 10 لاعبين</span></div>
-                    <div class="b-icon-item"><i class="fas fa-clock"></i> <span>15 - 30 دقيقة</span></div>
-                </div>
-                <h3>قوانين سريعة وفضايح فورية</h3>
-                <p>كل لاعب بيسحب شخصية سرية بتديله قدرات وفخاخ ينصبها لصحابه. اللعب سريع، حماسي، ومفيهوش تراجع!</p>
-            </div>
-
-            <!-- مربع 3 (مدمج): جودة الكروت الفاخرة -->
-            <div class="bento-card bento-normal">
-                <div class="bento-icon-wrapper"><i class="fas fa-gem"></i></div>
-                <h3>كروت Matte فاخرة ضد المياه</h3>
-                <p>مطبوعة على ورق كوشيه ثقيل ومحمية بطبقة سلوفان مطفأ عالي الجودة عشان تستحمل قعدات القهوة الساخنة والزيوت والمياه.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- [Fold 3] الـ Split-Screen Checkout (الطلب السريع بالفاتورة التفاعلية) -->
-    <section id="order-now" class="order-section reveal">
-        <div class="checkout-split-container">
+        <!-- منطقة التفاعل (الكروت) -->
+        <section class="interactive-stage">
+            <h1 class="main-title">جاهز تفضح<br><span class="accent">صحابك؟</span></h1>
+            <p class="subtitle">اضغط على الكروت واسحب 👇</p>
             
-            <!-- الجانب الأيمن: فورم إدخال البيانات -->
-            <div class="checkout-form-side">
-                <h2>احجز نسختك</h2>
-                <p class="form-sub">الدفع عند الاستلام بعد ما تفتح الشحنة وتتأكد من جودة الكروت بنفسك مع المندوب ✅</p>
-                
-                <form id="orderForm">
-                    <div class="input-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" id="name" required placeholder="الاسم ثلاثي">
-                    </div>
-                    
-                    <div class="input-group">
-                        <i class="fas fa-phone-alt"></i>
-                        <input type="tel" id="phone" required placeholder="رقم الموبايل (مثال: 01012345678)">
-                        <div id="phone-error" class="error-msg">يرجى كتابة رقم موبايل مصري صحيح (11 رقم)</div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <textarea id="address" rows="2" required placeholder="العنوان بالتفصيل (المحافظة - المركز - الشارع - علامة مميزة)"></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn" id="submitBtn">تأكيد الطلب الآن</button>
-                </form>
-                
-                <div id="success-msg"></div>
-                <div id="cooldown-msg">
-                    <i class="fas fa-exclamation-triangle" style="font-size: 2rem; display: block; margin-bottom: 10px; color: #f59e0b;"></i>
-                    لقد قمت بطلب اللعبة بالفعل، سنتواصل معك قريباً لتأكيد الأوردر.
-                </div>
+            <!-- مجموعة الكروت التفاعلية -->
+            <div class="card-deck" id="cardDeck">
+                <img src="card-back.png" class="deck-card c1" alt="كارت">
+                <img src="character-card-back.png" class="deck-card c2" alt="كارت">
+                <img src="card-face.png" class="deck-card c3" alt="كارت">
+                <img src="character-card-face.png" class="deck-card c4" alt="كارت">
             </div>
+        </section>
 
-            <!-- الجانب الأيسر: الفاتورة الذكية الحية -->
-            <div class="checkout-receipt-side">
-                <div class="receipt-card">
-                    <div class="receipt-header">
-                        <h3>ملخص الطلب 🛍️</h3>
-                        <span class="receipt-date">مباشر</span>
-                    </div>
-                    
-                    <!-- الباقات المدمجة الفاخرة -->
-                    <div class="receipt-bundles">
-                        <div class="receipt-bundle-item active" onclick="selectBundle(this, 150)">
-                            <input type="radio" name="bundle" value="علبة واحدة" checked id="b1">
-                            <div class="bundle-details">
-                                <span class="b-title">علبة واحدة من قعدة</span>
-                                <span class="b-desc">الباقة الأساسية لشلتك</span>
-                            </div>
-                            <span class="b-price">150 ج.م</span>
-                        </div>
-
-                        <div class="receipt-bundle-item" onclick="selectBundle(this, 280)">
-                            <span class="best-seller-badge">شحن مجاني 🔥</span>
-                            <input type="radio" name="bundle" value="عرض الصحاب (علبتين)" id="b2">
-                            <div class="bundle-details">
-                                <span class="b-title">عرض الصحاب (علبتين)</span>
-                                <span class="b-desc">علبة ليك وعلبة لصاحبك + شحن مجاني</span>
-                            </div>
-                            <span class="b-price">280 ج.م</span>
-                        </div>
-                    </div>
-
-                    <!-- إضافات الهدايا -->
-                    <div class="receipt-addons">
-                        <label class="addon-checkbox-label">
-                            <input type="checkbox" id="customEditionToggle" onchange="updateTotalPrice()">
-                            <div class="addon-info">
-                                <span class="addon-title">🎁 كروت تخصيص بالاسم والصورة (+50 ج.م)</span>
-                                <span class="addon-desc">هنطبعلك كارتين مخصوصين بصورة واسم تختارهم!</span>
-                            </div>
-                        </label>
-                    </div>
-
-                    <!-- تفاصيل السعر الحركية -->
-                    <div class="receipt-totals">
-                        <div class="receipt-row">
-                            <span>سعر الباقة</span>
-                            <span id="receipt-base-price">150 ج.م</span>
-                        </div>
-                        <div class="receipt-row">
-                            <span>كروت التخصيص</span>
-                            <span id="receipt-addon-price">0 ج.م</span>
-                        </div>
-                        <div class="receipt-row">
-                            <span>مصاريف الشحن</span>
-                            <span id="receipt-shipping-price">40 - 55 ج.م</span>
-                        </div>
-                        <div class="receipt-row total-row">
-                            <span>الإجمالي الكلي</span>
-                            <span id="total-price-display">150 ج.م</span>
-                        </div>
-                    </div>
-                </div>
+        <!-- الدوك السفلي (Bottom Dock) -->
+        <nav class="bottom-dock">
+            <div class="price-info">
+                <span class="price">150 ج.م</span>
+                <span class="shipping">الدفع عند الاستلام</span>
             </div>
+            <button class="buy-btn" id="openSheetBtn">اطلب اللعبة</button>
+        </nav>
+    </main>
 
+    <!-- شاشة الطلب المنبثقة (Bottom Sheet) -->
+    <div class="bottom-sheet-overlay" id="bottomSheetOverlay"></div>
+    <div class="bottom-sheet" id="bottomSheet">
+        <div class="sheet-header">
+            <div class="drag-handle"></div>
+            <h2>تأكيد الطلب 🚀</h2>
+            <button class="close-sheet" id="closeSheetBtn"><i class="fas fa-times"></i></button>
         </div>
-    </section>
 
-    <!-- زرار الواتساب العائم -->
-    <a href="https://wa.me/201066594552" target="_blank" class="floating-wa">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+        <div class="sheet-content">
+            <form id="orderForm" class="app-form">
+                <!-- اختيار الباقة -->
+                <div class="package-selector">
+                    <label class="package-card active" onclick="selectPackage(this, 150, 'علبة واحدة')">
+                        <input type="radio" name="bundle" value="علبة واحدة" checked>
+                        <span class="pkg-name">علبة واحدة</span>
+                        <span class="pkg-price">150 ج.م</span>
+                    </label>
+                    <label class="package-card" onclick="selectPackage(this, 280, 'عرض الصحاب (علبتين)')">
+                        <div class="badge">شحن مجاني</div>
+                        <input type="radio" name="bundle" value="عرض الصحاب (علبتين)">
+                        <span class="pkg-name">علبتين (صحاب)</span>
+                        <span class="pkg-price">280 ج.م</span>
+                    </label>
+                </div>
 
-    <!-- شريط الموبايل العائم للطلب السريع -->
-    <div class="mobile-sticky-cta">
-        <a href="#order-now" class="nav-btn main-action" style="display: block; width: 100%; text-align: center;">اطلب اللعبة دلوقتي</a>
+                <!-- إضافة الهدية -->
+                <label class="toggle-row">
+                    <div class="toggle-info">
+                        <span class="toggle-title">🎁 كروت التخصيص (+50 ج.م)</span>
+                        <span class="toggle-desc">كارتين بصورة واسم من اختيارك</span>
+                    </div>
+                    <div class="switch">
+                        <input type="checkbox" id="customEditionToggle" onchange="updateTotal()">
+                        <span class="slider"></span>
+                    </div>
+                </label>
+
+                <!-- الحقول الأساسية -->
+                <div class="input-modern">
+                    <input type="text" id="name" required placeholder=" ">
+                    <label>الاسم ثلاثي</label>
+                </div>
+                
+                <div class="input-modern">
+                    <input type="tel" id="phone" required placeholder=" " pattern="^01[0125][0-9]{8}$">
+                    <label>رقم الموبايل</label>
+                    <div id="phone-error" class="error-text">رقم غير صحيح</div>
+                </div>
+
+                <div class="input-modern">
+                    <textarea id="address" required placeholder=" " rows="2"></textarea>
+                    <label>العنوان بالتفصيل (محافظة، شارع، علامة)</label>
+                </div>
+
+                <!-- الإجمالي والزرار -->
+                <div class="sheet-footer">
+                    <div class="total-bar">
+                        <span>الإجمالي:</span>
+                        <span id="sheet-total">150 ج.م</span>
+                    </div>
+                    <button type="submit" class="confirm-btn" id="submitBtn">تأكيد الأوردر</button>
+                </div>
+            </form>
+
+            <div id="success-msg" class="hidden-msg">
+                <i class="fas fa-check-circle success-icon"></i>
+                <h3>تم الحجز بنجاح!</h3>
+                <p>عشان الأوردر يخرجلك، أكد معانا على الواتساب دلوقتي.</p>
+                <a href="#" id="waRedirectBtn" class="wa-btn"><i class="fab fa-whatsapp"></i> تأكيد على الواتساب</a>
+            </div>
+            
+            <div id="cooldown-msg" class="hidden-msg">
+                <i class="fas fa-info-circle warning-icon"></i>
+                <h3>طلبك متسجل فعلاً</h3>
+                <p>إحنا استلمنا طلبك وهنتواصل معاك قريب.</p>
+            </div>
+        </div>
     </div>
 
-    <!-- الفوتر البسيط السريع -->
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/share/18eyt9MeA4/" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/a3da.6/" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@a3da.6" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="mailto:a3da.ammnly6@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-        </div>
-        <p>جميع الحقوق محفوظة للعبة قعدة &copy; 2026</p>
-    </footer>
-
-    <!-- ربط ملف الـ JS المطور V2 -->
     <script src="script.js"></script>
 </body>
 </html>
