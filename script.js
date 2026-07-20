@@ -1,131 +1,174 @@
-// ================= 1. تفاعل الكروت (Deck Swipe Logic) =================
-const deck = document.getElementById('cardDeck');
-let cards = Array.from(document.querySelectorAll('.deck-card'));
+const SELLER_PHONE = "201066594552"; 
 
-deck.addEventListener('click', () => {
-    if (cards.length === 0) return;
-    
-    // سحب الكارت اللي فوق
-    const topCard = cards[0];
-    topCard.classList.add('tossed');
-    
-    setTimeout(() => {
-        // نرجعه في الآخر
-        topCard.classList.remove('tossed');
-        deck.appendChild(topCard);
-        
-        // إعادة ترتيب الكلاسات
-        cards.push(cards.shift());
-        cards.forEach((card, index) => {
-            card.className = `deck-card c${index + 1}`;
-        });
-    }, 400);
+const orderForm = document.getElementById('orderForm');
+const phoneInput = document.getElementById('phone');
+const phoneError = document.getElementById('phoneError');
+const govSelect = document.getElementById('governorate');
+const qtyInput = document.getElementById('quantity');
+const btnIncrease = document.getElementById('increaseQty');
+const btnDecrease = document.getElementById('decreaseQty');
+const submitBtn = document.getElementById('submitBtn');
+const customGiftCheckbox = document.getElementById('customGift');
+
+const productsTotalDisplay = document.getElementById('productsTotal');
+const shippingTotalDisplay = document.getElementById('shippingTotal');
+const dynamicTotalDisplay = document.getElementById('dynamicTotal');
+const customFeeLine = document.getElementById('customFeeLine');
+const customTotalDisplay = document.getElementById('customTotal');
+const rateLimitMsg = document.getElementById('rateLimitMsg');
+
+// 1. أزرار التحكم في الكمية
+btnIncrease.addEventListener('click', () => {
+    let currentQty = parseInt(qtyInput.value);
+    if (currentQty < 20) { qtyInput.value = currentQty + 1; updatePricing(); }
+});
+btnDecrease.addEventListener('click', () => {
+    let currentQty = parseInt(qtyInput.value);
+    if (currentQty > 1) { qtyInput.value = currentQty - 1; updatePricing(); }
 });
 
-// ================= 2. تحكم الشاشة المنبثقة (Bottom Sheet) =================
-const openBtn = document.getElementById('openSheetBtn');
-const closeBtn = document.getElementById('closeSheetBtn');
-const sheet = document.getElementById('bottomSheet');
-const overlay = document.getElementById('bottomSheetOverlay');
+// 2. تحديث السعر بناءً على الكمية + الشحن + الكاستم
+function updatePricing() {
+    const qty = parseInt(qtyInput.value) || 1;
+    const basePrice = qty === 1 ? 199 : qty * 175;
+    
+    const selectedGov = govSelect.options[govSelect.selectedIndex];
+    const shippingCost = selectedGov.value === "" ? 0 : parseInt(selectedGov.getAttribute('data-shipping'));
+    
+    // إضافة الكاستم ميد (50 جنيه على كل علبة لو اتعلم عليها)
+    let customCost = 0;
+    if(customGiftCheckbox.checked) {
+        customCost = 50 * qty;
+        customFeeLine.style.display = "flex";
+        customTotalDisplay.innerText = `${customCost} ج.م`;
+    } else {
+        customFeeLine.style.display = "none";
+    }
 
-function openSheet() {
-    sheet.classList.add('open');
-    overlay.classList.add('open');
+    const finalTotal = basePrice + shippingCost + customCost;
+    
+    productsTotalDisplay.innerText = `${basePrice} ج.م`;
+    shippingTotalDisplay.innerText = `${shippingCost} ج.م`;
+    dynamicTotalDisplay.innerText = `${finalTotal} ج.م`;
 }
 
-function closeSheet() {
-    sheet.classList.remove('open');
-    overlay.classList.remove('open');
-}
+govSelect.addEventListener('change', updatePricing);
+customGiftCheckbox.addEventListener('change', updatePricing);
 
-openBtn.addEventListener('click', openSheet);
-closeBtn.addEventListener('click', closeSheet);
-overlay.addEventListener('click', closeSheet);
+// 3. فلترة برمجية صارمة (Strict Regex Validation)
+phoneInput.addEventListener('input', function() {
+    // يقبل فقط: 11 رقم، تبدأ بـ 010 أو 011 أو 012 أو 015
+    const strictRegex = /^01[0125][0-9]{8}$/;
+    
+    // منع إدخال أي حروف، فقط أرقام
+    this.value = this.value.replace(/[^0-9]/g, '');
 
-// حل مشكلة الكيبورد في الموبايل
-const inputs = document.querySelectorAll('input[type="text"], input[type="tel"], textarea');
-inputs.forEach(input => {
-    input.addEventListener('focus', () => {
-        // نرفع الشيت شوية لفوق وقت الكتابة عشان ميتغطاش
-        sheet.style.height = '100dvh';
-        sheet.style.borderTopLeftRadius = '0';
-        sheet.style.borderTopRightRadius = '0';
-    });
-    input.addEventListener('blur', () => {
-        sheet.style.height = '85dvh';
-        sheet.style.borderTopLeftRadius = '32px';
-        sheet.style.borderTopRightRadius = '32px';
-    });
+    if (this.value.length > 0 && !strictRegex.test(this.value)) {
+        phoneError.style.display = 'block';
+        this.style.borderColor = '#f43f5e';
+    } else {
+        phoneError.style.display = 'none';
+        this.style.borderColor = 'rgba(255, 255, 255, 0.08)';
+    }
 });
 
-// ================= 3. تحديث الأسعار =================
-let basePrice = 150;
-
-function selectPackage(element, price, name) {
-    document.querySelectorAll('.package-card').forEach(el => el.classList.remove('active'));
-    element.classList.add('active');
-    element.querySelector('input').checked = true;
-    basePrice = price;
-    updateTotal();
+// 4. تقييد الطلبات (Rate Limiting via LocalStorage)
+function isRateLimited() {
+    const lastOrderTime = localStorage.getItem('a3da_last_order');
+    if (!lastOrderTime) return false;
+    
+    const now = new Date().getTime();
+    const timeDiff = now - parseInt(lastOrderTime);
+    
+    // يمنع إرسال طلب جديد إلا بعد مرور 3 دقائق (180,000 مللي ثانية)
+    return timeDiff < 180000; 
 }
 
-function updateTotal() {
-    const isCustom = document.getElementById('customEditionToggle').checked;
-    const finalPrice = basePrice + (isCustom ? 50 : 0);
-    document.getElementById('sheet-total').innerText = `${finalPrice} ج.م`;
-}
-
-// ================= 4. إرسال الطلب =================
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxUHhqDIdx-MVMgNkMmUY3Tzj_wNRVX8W5u2E6arwdtvd0pMmqSBeGnCZdZJ8EEdsSJ/exec';
-const myWhatsApp = "201066594552"; 
-const form = document.getElementById('orderForm');
-
-form.addEventListener('submit', e => {
+orderForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    const phone = document.getElementById('phone').value;
-    const phoneError = document.getElementById('phone-error');
-    if (!/^01[0125][0-9]{8}$/.test(phone)) {
-        phoneError.style.display = 'block'; return;
-    } else { phoneError.style.display = 'none'; }
+    // 🚨 1. الحماية من البوتات (Honeypot Check) 🚨
+    const honeypot = document.getElementById('honeypot').value;
+    if (honeypot !== "") {
+        console.log("Bot detected! - script.js:93"); 
+        return; // خروج صامت بدون تنبيه البوت
+    }
 
-    const lastOrder = localStorage.getItem('qa3da_order');
-    if (lastOrder && (Date.now() - parseInt(lastOrder) < 600000)) {
-        form.style.display = 'none';
-        document.getElementById('cooldown-msg').style.display = 'block';
+    // 🚨 2. التحقق من الـ Rate Limit 🚨
+    if (isRateLimited()) {
+        rateLimitMsg.style.display = 'block';
+        return;
+    } else {
+        rateLimitMsg.style.display = 'none';
+    }
+
+    const regex = /^01[0125][0-9]{8}$/;
+    if (!regex.test(phoneInput.value)) {
+        phoneInput.focus();
+        phoneError.style.display = 'block';
         return;
     }
 
-    const submitBtn = document.getElementById('submitBtn');
-    submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
-    submitBtn.disabled = true;
-
-    const name = document.getElementById('name').value;
-    const address = document.getElementById('address').value;
-    const bundle = document.querySelector('input[name="bundle"]:checked').value;
-    const isCustom = document.getElementById('customEditionToggle').checked ? "نعم" : "لا";
-    const orderID = "#" + Math.floor(1000 + Math.random() * 9000);
-
-    const waMsg = `تأكيد طلب:
-الاسم: ${name}
-الموبايل: ${phone}
-العنوان: ${address}
-الباقة: ${bundle}
-تخصيص: ${isCustom}
-كود: ${orderID}`;
-    const waUrl = `https://wa.me/${myWhatsApp}?text=${encodeURIComponent(waMsg)}`;
-
-    let formData = new FormData();
-    formData.append("name", name); formData.append("phone", phone);
-    formData.append("address", address); formData.append("bundle", bundle);
-    formData.append("customEdition", isCustom); formData.append("orderID", orderID);
-
-    fetch(scriptURL, { method: 'POST', body: formData }).then(() => showSuccess(waUrl)).catch(() => showSuccess(waUrl));
-
-    function showSuccess(url) {
-        localStorage.setItem('qa3da_order', Date.now());
-        form.style.display = 'none';
-        document.getElementById('success-msg').style.display = 'block';
-        document.getElementById('waRedirectBtn').href = url;
+    if (govSelect.value === "") {
+        alert("يرجى اختيار المحافظة لتحديد قيمة الشحن.");
+        govSelect.focus();
+        return;
     }
+
+    const name = document.getElementById('fullName').value.trim();
+    const phone = phoneInput.value.trim();
+    const governorate = govSelect.value;
+    const address = document.getElementById('address').value.trim();
+    const qty = parseInt(qtyInput.value) || 1;
+    const isCustom = customGiftCheckbox.checked;
+    
+    const basePrice = qty === 1 ? 199 : qty * 175;
+    const selectedGov = govSelect.options[govSelect.selectedIndex];
+    const shippingCost = parseInt(selectedGov.getAttribute('data-shipping'));
+    const customCost = isCustom ? 50 * qty : 0;
+    const finalTotal = basePrice + shippingCost + customCost;
+    
+    const orderId = "ORD-" + Math.floor(10000 + Math.random() * 90000);
+
+    const msg = `طلب جديد - لعبة قعدة
+
+رقم الطلب: #${orderId}
+
+بيانات العميل:
+الاسم: ${name}
+رقم الهاتف: ${phone}
+المحافظة: ${governorate}
+العنوان: ${address}
+
+تفاصيل الفاتورة:
+الكمية: ${qty} نسخة
+إضافة (Custom Made): ${isCustom ? 'نعم 🎁' : 'لا'}
+قيمة المنتجات: ${basePrice} ج.م
+${isCustom ? `رسوم الإضافة: ${customCost} ج.م\n` : ''}مصاريف الشحن: ${shippingCost} ج.م
+---
+الإجمالي المطلوب: ${finalTotal} ج.م`;
+
+    const encodedMsg = encodeURIComponent(msg);
+    const whatsappUrl = `https://wa.me/${SELLER_PHONE}?text=${encodedMsg}`;
+
+    submitBtn.innerHTML = 'جاري التحويل للواتساب...';
+    submitBtn.style.opacity = '0.7';
+    submitBtn.style.pointerEvents = 'none';
+
+    // تسجيل وقت الطلب في المتصفح لمنع السبام
+    localStorage.setItem('a3da_last_order', new Date().getTime().toString());
+
+    setTimeout(() => {
+        window.location.href = whatsappUrl;
+        
+        setTimeout(() => {
+            submitBtn.innerHTML = 'تأكيد الطلب';
+            submitBtn.style.opacity = '1';
+            submitBtn.style.pointerEvents = 'auto';
+            orderForm.reset();
+            qtyInput.value = 1;
+            customFeeLine.style.display = "none";
+            updatePricing();
+        }, 2000);
+    }, 400);
 });
