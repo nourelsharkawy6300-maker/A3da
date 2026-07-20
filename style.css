@@ -163,15 +163,65 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
 
-/* التجاوب مع الموبايل (مريح أكتر للإيد) */
+/* =========================================
+   8. RESPONSIVE DESIGN (تظبيط الموبايل - أندرويد وأيفون)
+   ========================================= */
+
+/* الشاشات المتوسطة (التابلت والموبايلات العريضة) */
 @media (max-width: 992px) {
-    .hero__grid, .checkout__wrapper { grid-template-columns: 1fr; gap: 3.5rem; text-align: center; }
+    .hero__grid, .checkout__wrapper { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
     .hero__title { font-size: 3.2rem; }
-    .hero__image { max-width: 320px; margin: 0 auto; }
+    .hero__image { max-width: 300px; margin: 0 auto; }
     .checkout__info { text-align: center; }
-    .price-box { text-align: center; }
-    .checkout__form-container { padding: 2.5rem 1.5rem; text-align: right; }
+    .price-box { text-align: center; margin: 1.5rem auto; }
+    .checkout__form-container { padding: 2rem; text-align: right; }
     .trust-badges { justify-content: center; }
     .quantity-wrapper { margin: 0 auto; }
     .floating-wa { bottom: 20px; left: 20px; width: 55px; height: 55px; }
+}
+
+/* الشاشات الصغيرة (الأيفون، والأندرويد بكل مقاساته) */
+@media (max-width: 576px) {
+    .container { width: 92%; }
+    
+    /* 1. تظبيط الهيدر عشان اللوجو والزرار ميركبوش على بعض */
+    .header__logo { height: 40px; }
+    .btn--outline { padding: 0.5rem 0.8rem; font-size: 0.85rem; border-radius: 6px; }
+    
+    /* 2. تصغير الخطوط عشان متكسرش الشاشة وتخرج براها */
+    .hero { padding: 4rem 0 3rem; }
+    .hero__title { font-size: 2.2rem; margin-bottom: 1rem; }
+    .hero__subtitle { font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6; }
+    .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
+    
+    /* 3. تظبيط زرار الشراء في الهيرو عشان ياخد عرض الشاشة ويبقى مغري للضغط */
+    .btn--large { padding: 1rem 1.5rem; font-size: 1.1rem; width: 100%; display: block; margin: 0 auto; }
+    
+    /* 4. تظبيط سكشن الكاستم (الهدية) عشان الكلام ميركبش على الـ Checkbox */
+    .custom-addon { padding: 1rem; gap: 0.8rem; flex-direction: row; align-items: flex-start; }
+    .addon-title { font-size: 0.95rem; line-height: 1.3; }
+    .addon-desc { font-size: 0.8rem; }
+    
+    /* 5. تظبيط زرار الكمية (+ و -) عشان يبقى عريض ومريح لصباع المستخدم */
+    .quantity-wrapper { width: 100%; display: flex; justify-content: space-between; }
+    .qty-btn { padding: 0.8rem 1.2rem; flex: 1; }
+    .quantity-wrapper input { flex: 2; width: auto; font-size: 1rem; }
+    
+    /* 6. الفورم والتسجيل (مريحة للعين والكتابة) */
+    .checkout__form-container { padding: 1.5rem 1rem; border-radius: 12px; }
+    .form input, .form textarea, .form select { padding: 0.9rem; font-size: 0.95rem; }
+    .form__group { gap: 0.4rem; }
+    
+    /* 7. أختام الثقة تحت بعض بمسافات مظبوطة */
+    .trust-badges { gap: 0.5rem; font-size: 0.8rem; flex-wrap: wrap; justify-content: center; }
+    
+    /* 8. تظبيط أزرار السوشيال ميديا في الفوتر عشان متبقاش ملزقة */
+    .footer__socials { flex-wrap: wrap; gap: 0.5rem; }
+    .social-link { width: 48%; text-align: center; padding: 0.5rem; font-size: 0.85rem; }
+    
+    /* 9. فاتورة الحساب (تصغير الخطوط عشان تناسب الموبايل) */
+    .total-price-display { padding: 1.2rem; }
+    .summary-line { font-size: 0.95rem; }
+    .total-line { font-size: 1.1rem; }
+    .total-line strong { font-size: 1.3rem; }
 }
