@@ -1,100 +1,20 @@
-const SELLER_PHONE = "201066594552"; 
-
-const orderForm = document.getElementById('orderForm');
-const phoneInput = document.getElementById('phone');
-const phoneError = document.getElementById('phoneError');
-const govSelect = document.getElementById('governorate');
-const qtyInput = document.getElementById('quantity');
-const btnIncrease = document.getElementById('increaseQty');
-const btnDecrease = document.getElementById('decreaseQty');
-const submitBtn = document.getElementById('submitBtn');
-const customGiftCheckbox = document.getElementById('customGift');
-
-const productsTotalDisplay = document.getElementById('productsTotal');
-const shippingTotalDisplay = document.getElementById('shippingTotal');
-const dynamicTotalDisplay = document.getElementById('dynamicTotal');
-const customFeeLine = document.getElementById('customFeeLine');
-const customTotalDisplay = document.getElementById('customTotal');
-const rateLimitMsg = document.getElementById('rateLimitMsg');
-
-// 1. أزرار التحكم في الكمية
-btnIncrease.addEventListener('click', () => {
-    let currentQty = parseInt(qtyInput.value);
-    if (currentQty < 20) { qtyInput.value = currentQty + 1; updatePricing(); }
-});
-btnDecrease.addEventListener('click', () => {
-    let currentQty = parseInt(qtyInput.value);
-    if (currentQty > 1) { qtyInput.value = currentQty - 1; updatePricing(); }
-});
-
-// 2. تحديث السعر بناءً على الكمية + الشحن + الكاستم
-function updatePricing() {
-    const qty = parseInt(qtyInput.value) || 1;
-    const basePrice = qty === 1 ? 199 : qty * 175;
-    
-    const selectedGov = govSelect.options[govSelect.selectedIndex];
-    const shippingCost = selectedGov.value === "" ? 0 : parseInt(selectedGov.getAttribute('data-shipping'));
-    
-    // إضافة الكاستم ميد (50 جنيه على كل علبة لو اتعلم عليها)
-    let customCost = 0;
-    if(customGiftCheckbox.checked) {
-        customCost = 50 * qty;
-        customFeeLine.style.display = "flex";
-        customTotalDisplay.innerText = `${customCost} ج.م`;
-    } else {
-        customFeeLine.style.display = "none";
-    }
-
-    const finalTotal = basePrice + shippingCost + customCost;
-    
-    productsTotalDisplay.innerText = `${basePrice} ج.م`;
-    shippingTotalDisplay.innerText = `${shippingCost} ج.م`;
-    dynamicTotalDisplay.innerText = `${finalTotal} ج.م`;
-}
-
-govSelect.addEventListener('change', updatePricing);
-customGiftCheckbox.addEventListener('change', updatePricing);
-
-// 3. فلترة برمجية صارمة (Strict Regex Validation)
-phoneInput.addEventListener('input', function() {
-    // يقبل فقط: 11 رقم، تبدأ بـ 010 أو 011 أو 012 أو 015
-    const strictRegex = /^01[0125][0-9]{8}$/;
-    
-    // منع إدخال أي حروف، فقط أرقام
-    this.value = this.value.replace(/[^0-9]/g, '');
-
-    if (this.value.length > 0 && !strictRegex.test(this.value)) {
-        phoneError.style.display = 'block';
-        this.style.borderColor = '#f43f5e';
-    } else {
-        phoneError.style.display = 'none';
-        this.style.borderColor = 'rgba(255, 255, 255, 0.08)';
-    }
-});
-
 // 4. تقييد الطلبات (Rate Limiting via LocalStorage)
 function isRateLimited() {
     const lastOrderTime = localStorage.getItem('a3da_last_order');
     if (!lastOrderTime) return false;
-    
     const now = new Date().getTime();
-    const timeDiff = now - parseInt(lastOrderTime);
-    
-    // يمنع إرسال طلب جديد إلا بعد مرور 3 دقائق (180,000 مللي ثانية)
-    return timeDiff < 180000; 
+    return (now - parseInt(lastOrderTime)) < 180000; // 3 دقائق
 }
 
 orderForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // 🚨 1. الحماية من البوتات (Honeypot Check) 🚨
-    const honeypot = document.getElementById('honeypot').value;
-    if (honeypot !== "") {
-        console.log("Bot detected! - script.js:93"); 
-        return; // خروج صامت بدون تنبيه البوت
-    }
+    //   اللينك بتاع جوجل شيت اللي إنت نسخته هنا بين علامتين التنصيص 
+    const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwCtBxbrI-jbqIFCgJcNyeiKiYzOTIQaNA5R2sgaxptIDsOYfHer2DQiZ5kEvShUrOc/exec";
 
-    // 🚨 2. التحقق من الـ Rate Limit 🚨
+    const honeypot = document.getElementById('honeypot').value;
+    if (honeypot !== "") { console.log("Bot blocked"); return; }
+
     if (isRateLimited()) {
         rateLimitMsg.style.display = 'block';
         return;
@@ -110,8 +30,7 @@ orderForm.addEventListener('submit', function(e) {
     }
 
     if (govSelect.value === "") {
-        alert("يرجى اختيار المحافظة لتحديد قيمة الشحن.");
-        govSelect.focus();
+        alert("يرجى اختيار المحافظة.");
         return;
     }
 
@@ -130,37 +49,44 @@ orderForm.addEventListener('submit', function(e) {
     
     const orderId = "ORD-" + Math.floor(10000 + Math.random() * 90000);
 
-    const msg = `طلب جديد - لعبة قعدة
+    // 1. تجهيز الداتا عشان تتبعت لجوجل شيت
+    const formData = new FormData();
+    formData.append('orderId', orderId);
+    formData.append('fullName', name);
+    formData.append('phone', phone);
+    formData.append('governorate', governorate);
+    formData.append('address', address);
+    formData.append('quantity', qty);
+    formData.append('isCustom', isCustom ? 'نعم 🎁' : 'لا');
+    formData.append('finalTotal', finalTotal);
 
-رقم الطلب: #${orderId}
-
-بيانات العميل:
-الاسم: ${name}
-رقم الهاتف: ${phone}
-المحافظة: ${governorate}
-العنوان: ${address}
-
-تفاصيل الفاتورة:
-الكمية: ${qty} نسخة
-إضافة (Custom Made): ${isCustom ? 'نعم 🎁' : 'لا'}
-قيمة المنتجات: ${basePrice} ج.م
-${isCustom ? `رسوم الإضافة: ${customCost} ج.م\n` : ''}مصاريف الشحن: ${shippingCost} ج.م
----
-الإجمالي المطلوب: ${finalTotal} ج.م`;
-
+    // 2. تجهيز رسالة الواتساب
+    const msg = `طلب جديد - لعبة قعدة\n\nرقم الطلب: #${orderId}\n\nبيانات العميل:\nالاسم: ${name}\nرقم الهاتف: ${phone}\nالمحافظة: ${governorate}\nالعنوان: ${address}\n\nتفاصيل الفاتورة:\nالكمية: ${qty} نسخة\nإضافة (Custom Made): ${isCustom ? 'نعم 🎁' : 'لا'}\nقيمة المنتجات: ${basePrice} ج.م\n${isCustom ? `رسوم الإضافة: ${customCost} ج.م\n` : ''}مصاريف الشحن: ${shippingCost} ج.م\n---\nالإجمالي المطلوب: ${finalTotal} ج.م`;
     const encodedMsg = encodeURIComponent(msg);
     const whatsappUrl = `https://wa.me/${SELLER_PHONE}?text=${encodedMsg}`;
 
-    submitBtn.innerHTML = 'جاري التحويل للواتساب...';
+    submitBtn.innerHTML = 'جاري تسجيل الطلب... ⏳';
     submitBtn.style.opacity = '0.7';
     submitBtn.style.pointerEvents = 'none';
 
-    // تسجيل وقت الطلب في المتصفح لمنع السبام
+    // تسجيل وقت الطلب لمنع السبام
     localStorage.setItem('a3da_last_order', new Date().getTime().toString());
 
-    setTimeout(() => {
-        window.location.href = whatsappUrl;
-        
+    // 3. الإرسال لجوجل شيت أولاً، وبعدين التحويل للواتساب
+    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: formData })
+        .then(response => {
+            // أول ما الداتا تسمع في الشيت، افتح الواتساب للعميل
+            window.location.href = whatsappUrl;
+            resetFormAfterSubmit();
+        })
+        .catch(error => {
+            // لو حصل أي مشكلة في النت والشيت مسمعش، هنحوله برضو للواتساب عشان منخسرش البيعة
+            console.error('Error!', error.message);
+            window.location.href = whatsappUrl;
+            resetFormAfterSubmit();
+        });
+
+    function resetFormAfterSubmit() {
         setTimeout(() => {
             submitBtn.innerHTML = 'تأكيد الطلب';
             submitBtn.style.opacity = '1';
@@ -170,5 +96,5 @@ ${isCustom ? `رسوم الإضافة: ${customCost} ج.م\n` : ''}مصاريف 
             customFeeLine.style.display = "none";
             updatePricing();
         }, 2000);
-    }, 400);
+    }
 });
