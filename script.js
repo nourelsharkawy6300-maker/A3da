@@ -51,7 +51,7 @@ function updatePricing() {
     // التسعير الذكي: 199 للعلبة، 175 للعلبة لو اتنين أو أكتر
     const basePrice = qty === 1 ? 199 : qty * 175;
     
-    // حساب مصاريف الشحن
+    // حساب مصاريف الشحن من اختيار المحافظة
     const selectedGov = govSelect.options[govSelect.selectedIndex];
     const shippingCost = selectedGov.value === "" ? 0 : parseInt(selectedGov.getAttribute('data-shipping'));
     
