@@ -30,7 +30,7 @@
     </header>
 
     <main>
-        <!-- 🚨 تم تعديل صيغة الصورة هنا لـ png 🚨 -->
+        <!-- قسم الهيرو (الواجهة) مع خلفية اللعبة -->
         <section class="hero" style="background: linear-gradient(rgba(11, 17, 33, 0.85), rgba(11, 17, 33, 0.95)), url('home-bg.png') center/cover no-repeat;">
             <div class="container hero__grid">
                 <div class="hero__content">
@@ -47,9 +47,15 @@
                         <span>استبدال مجاني</span>
                     </div>
                 </div>
+                
+                <!-- كروت الأنيميشن 3D -->
                 <div class="hero__media">
-                    <!-- 🚨 تم تعديل صيغة الصورة هنا لـ png 🚨 -->
-                    <img src="character-card-face.png" alt="لعبة قعدة" class="hero__image" onerror="this.src='https://via.placeholder.com/400x500/1e293b/ffffff?text=Game+Card'">
+                    <div class="cards-animation-wrapper">
+                        <!-- ظهر الكارت -->
+                        <img src="card-back.jpg" alt="ظهر لعبة قعدة" class="animated-card card-back" onerror="this.src='https://via.placeholder.com/240x350/1e293b/ffffff?text=Card+Back'">
+                        <!-- وش الشخصية -->
+                        <img src="character-card-face.jpg" alt="شخصية اللعبة" class="animated-card card-front" onerror="this.src='https://via.placeholder.com/240x350/f43f5e/ffffff?text=Character'">
+                    </div>
                 </div>
             </div>
         </section>
@@ -109,6 +115,7 @@
                             <span class="form__error" id="phoneError">الرقم غير صحيح، يجب أن يبدأ بـ 010/011/012/015 ويتكون من 11 رقم.</span>
                         </div>
 
+                        <!-- 🚨 قائمة المحافظات الكاملة بأسعار الشحن 🚨 -->
                         <div class="form__group">
                             <label for="governorate">المحافظة (لتحديد الشحن)</label>
                             <select id="governorate" required>
@@ -116,9 +123,30 @@
                                 <option value="القاهرة" data-shipping="45">القاهرة (45 ج.م)</option>
                                 <option value="الجيزة" data-shipping="45">الجيزة (45 ج.م)</option>
                                 <option value="الإسكندرية" data-shipping="55">الإسكندرية (55 ج.م)</option>
-                                <option value="الدلتا والقناة" data-shipping="65">المنوفية، الغربية، الشرقية، الإسماعيلية، الخ (65 ج.م)</option>
-                                <option value="الصعيد" data-shipping="90">بني سويف، المنيا، أسيوط، سوهاج، قنا، أسوان (90 ج.م)</option>
-                                <option value="المحافظات الحدودية" data-shipping="110">البحر الأحمر، مطروح، سيناء، الوادي الجديد (110 ج.م)</option>
+                                <option value="القليوبية" data-shipping="55">القليوبية (55 ج.م)</option>
+                                <option value="المنوفية" data-shipping="60">المنوفية (60 ج.م)</option>
+                                <option value="الغربية" data-shipping="60">الغربية - طنطا (60 ج.م)</option>
+                                <option value="الشرقية" data-shipping="60">الشرقية - الزقازيق (60 ج.م)</option>
+                                <option value="الدقهلية" data-shipping="60">الدقهلية - المنصورة (60 ج.م)</option>
+                                <option value="كفر الشيخ" data-shipping="60">كفر الشيخ (60 ج.م)</option>
+                                <option value="البحيرة" data-shipping="60">البحيرة - دمنهور (60 ج.م)</option>
+                                <option value="دمياط" data-shipping="65">دمياط (65 ج.م)</option>
+                                <option value="بورسعيد" data-shipping="65">بورسعيد (65 ج.م)</option>
+                                <option value="الإسماعيلية" data-shipping="65">الإسماعيلية (65 ج.م)</option>
+                                <option value="السويس" data-shipping="65">السويس (65 ج.م)</option>
+                                <option value="الفيوم" data-shipping="70">الفيوم (70 ج.م)</option>
+                                <option value="بني سويف" data-shipping="70">بني سويف (70 ج.م)</option>
+                                <option value="المنيا" data-shipping="80">المنيا (80 ج.م)</option>
+                                <option value="أسيوط" data-shipping="80">أسيوط (80 ج.م)</option>
+                                <option value="سوهاج" data-shipping="90">سوهاج (90 ج.م)</option>
+                                <option value="قنا" data-shipping="90">قنا (90 ج.م)</option>
+                                <option value="الأقصر" data-shipping="100">الأقصر (100 ج.م)</option>
+                                <option value="أسوان" data-shipping="100">أسوان (100 ج.م)</option>
+                                <option value="البحر الأحمر" data-shipping="110">البحر الأحمر - الغردقة (110 ج.م)</option>
+                                <option value="مطروح" data-shipping="110">مرسى مطروح (110 ج.م)</option>
+                                <option value="الوادي الجديد" data-shipping="120">الوادي الجديد (120 ج.م)</option>
+                                <option value="شمال سيناء" data-shipping="120">شمال سيناء - العريش (120 ج.م)</option>
+                                <option value="جنوب سيناء" data-shipping="120">جنوب سيناء - شرم الشيخ (120 ج.م)</option>
                             </select>
                         </div>
 
