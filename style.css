@@ -30,7 +30,7 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .header { padding: 1rem 0; position: sticky; top: 0; background: rgba(11, 17, 33, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--border); transition: all 0.4s var(--smooth-curve); }
 .header__wrapper { display: flex; justify-content: space-between; align-items: center; }
 
-/* 🚨 تظبيط اللوجو عشان ميضربش في الشاشة 🚨 */
+/* تظبيط اللوجو */
 .header__logo { height: 55px; width: auto; object-fit: contain; transition: all 0.3s ease; }
 .header__logo:hover { transform: scale(1.05); }
 
@@ -51,19 +51,33 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .btn--large { font-size: 1.15rem; padding: 1.3rem 2.8rem; }
 
 /* =========================================
-   4. HERO SECTION (الواجهة وأنيميشن التنفس)
+   4. HERO SECTION & 3D CARDS ANIMATION
    ========================================= */
 .hero { padding: 7rem 0 5rem; display: flex; align-items: center; border-bottom: 1px solid var(--border); }
 .hero__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
 .badge { background: rgba(255,255,255,0.03); color: var(--text-muted); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-bottom: 1.5rem; border: 1px solid var(--border); letter-spacing: 0.5px; }
 .hero__title { font-size: 4.2rem; line-height: 1.15; font-weight: 900; margin-bottom: 1.5rem; }
 .hero__subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.8; font-weight: 400; }
-.hero__image { width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); animation: slowBreathe 6s ease-in-out infinite; }
 
-@keyframes slowBreathe { 
-    0% { transform: translateY(0px); } 
-    50% { transform: translateY(-15px); } 
-    100% { transform: translateY(0px); } 
+/* 🚨 كروت الأنيميشن المتداخلة (3D Hover Effect) 🚨 */
+.cards-animation-wrapper { position: relative; width: 100%; height: 480px; display: flex; justify-content: center; perspective: 1000px; }
+.animated-card { position: absolute; width: 240px; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.6); transition: all 0.5s ease; }
+
+.card-back { top: 20px; right: 5%; transform: rotate(15deg); z-index: 1; animation: floatRight 6s ease-in-out infinite; filter: brightness(0.85); }
+.card-front { top: 80px; left: 5%; transform: rotate(-10deg); z-index: 2; animation: floatLeft 7s ease-in-out infinite; }
+
+.cards-animation-wrapper:hover .card-back { transform: rotate(25deg) translateX(20px); }
+.cards-animation-wrapper:hover .card-front { transform: rotate(-5deg) translateX(-20px); }
+
+@keyframes floatRight {
+    0% { transform: rotate(15deg) translateY(0px); }
+    50% { transform: rotate(15deg) translateY(-20px); }
+    100% { transform: rotate(15deg) translateY(0px); }
+}
+@keyframes floatLeft {
+    0% { transform: rotate(-10deg) translateY(0px); }
+    50% { transform: rotate(-10deg) translateY(-15px); }
+    100% { transform: rotate(-10deg) translateY(0px); }
 }
 
 .trust-badges { display: flex; gap: 1rem; margin-top: 2.5rem; color: #64748b; font-size: 0.9rem; font-weight: 500; align-items: center; flex-wrap: wrap; }
@@ -165,7 +179,6 @@ input[type="number"] { -moz-appearance: textfield; }
 @media (max-width: 992px) {
     .hero__grid, .checkout__wrapper { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
     .hero__title { font-size: 3.2rem; }
-    .hero__image { max-width: 300px; margin: 0 auto; }
     .checkout__info { text-align: center; }
     .price-box { text-align: center; margin: 1.5rem auto; }
     .checkout__form-container { padding: 2rem; text-align: right; }
@@ -185,6 +198,12 @@ input[type="number"] { -moz-appearance: textfield; }
     .hero__title { font-size: 2.2rem; margin-bottom: 1rem; }
     .hero__subtitle { font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6; }
     .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
+    
+    /* 🚨 تظبيط كروت الأنيميشن للموبايل عشان متكسرش الشاشة 🚨 */
+    .cards-animation-wrapper { height: 380px; }
+    .animated-card { width: 180px; border-radius: 12px; }
+    .card-back { right: 10%; top: 10px; }
+    .card-front { left: 10%; top: 50px; }
     
     .btn--large { padding: 1rem 1.5rem; font-size: 1.1rem; width: 100%; display: block; margin: 0 auto; }
     
