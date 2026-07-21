@@ -3,14 +3,14 @@
    ========================================= */
 :root {
     --bg-dark: #0b1121;
-    --bg-card: #131c2f; /* لون أهدى وأعمق للبطاقات */
+    --bg-card: #131c2f;
     --primary: #f43f5e;
     --primary-hover: #e11d48;
     --whatsapp: #25d366;
     --text-main: #f8fafc;
     --text-muted: #94a3b8;
-    --border: rgba(255, 255, 255, 0.06); /* حدود أنعم */
-    --smooth-curve: cubic-bezier(0.25, 0.8, 0.25, 1); /* سر النعومة في الحركة */
+    --border: rgba(255, 255, 255, 0.06);
+    --smooth-curve: cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,73 +20,57 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .highlight { color: var(--primary); }
 .section-title { text-align: center; font-size: 2.2rem; font-weight: 800; margin-bottom: 3rem; color: #fff; }
 
-/* 2. بانر التحدي (هادي ومش بيوجع العين) */
+/* =========================================
+   2. BANNERS & HEADER (الهيدر والبانر)
+   ========================================= */
 .dare-banner { background: linear-gradient(90deg, #d97706, #e11d48); color: #fff; text-align: center; padding: 0.8rem 1rem; font-size: 0.95rem; font-weight: 500; z-index: 1001; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
 .dare-banner strong { font-weight: 800; }
 .dare-banner span { background: rgba(0,0,0,0.2); padding: 0.2rem 0.6rem; border-radius: 6px; letter-spacing: 0.5px; }
 
-/* 3. الهيدر (زجاجي ناعم) */
 .header { padding: 1rem 0; position: sticky; top: 0; background: rgba(11, 17, 33, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--border); transition: all 0.4s var(--smooth-curve); }
 .header__wrapper { display: flex; justify-content: space-between; align-items: center; }
-.header__logo-text { font-size: 1.5rem; font-weight: 900; letter-spacing: -0.5px; color: #fff; }
 
-.header__logo {
-    height: 55px; /* ده هيلم اللوجو ويخليه شيك ومناسب للهيدر */
-    width: auto;
-    object-fit: contain;
-    transition: all 0.3s ease;
-}
+/* 🚨 تظبيط اللوجو عشان ميضربش في الشاشة 🚨 */
+.header__logo { height: 55px; width: auto; object-fit: contain; transition: all 0.3s ease; }
+.header__logo:hover { transform: scale(1.05); }
 
-.header__logo:hover {
-    transform: scale(1.05); /* حركة خفيفة لما الماوس ييجي عليه */
-}
 /* =========================================
-   4. زراير الشراء (Magnetic & Shiny)
+   3. BUTTONS (زراير الشراء المغناطيسية)
    ========================================= */
 .btn { position: relative; display: inline-block; padding: 1.1rem 2.2rem; border-radius: 12px; font-weight: 800; text-decoration: none; text-align: center; transition: all 0.4s var(--smooth-curve); cursor: pointer; border: none; font-family: 'Tajawal', sans-serif; overflow: hidden; }
 
-.btn--primary { 
-    background: linear-gradient(135deg, var(--primary) 0%, #be123c 100%); 
-    color: #fff; 
-    box-shadow: 0 8px 20px rgba(244, 63, 94, 0.2); 
-}
-
-/* لمعة خفيفة بتعدي على الزرار لما تقف عليه (High-End effect) */
-.btn--primary::after {
-    content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-    transition: all 0.6s var(--smooth-curve);
-}
+.btn--primary { background: linear-gradient(135deg, var(--primary) 0%, #be123c 100%); color: #fff; box-shadow: 0 8px 20px rgba(244, 63, 94, 0.2); }
+.btn--primary::after { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent); transition: all 0.6s var(--smooth-curve); }
 .btn--primary:hover::after { left: 100%; }
-.btn--primary:hover { 
-    transform: translateY(-3px); 
-    box-shadow: 0 12px 25px rgba(244, 63, 94, 0.4); 
-}
-.btn--primary:active { transform: translateY(1px); box-shadow: 0 4px 10px rgba(244, 63, 94, 0.3); } /* إحساس الضغطة الحقيقية */
+.btn--primary:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(244, 63, 94, 0.4); }
+.btn--primary:active { transform: translateY(1px); box-shadow: 0 4px 10px rgba(244, 63, 94, 0.3); }
 
 .btn--outline { border: 1px solid rgba(255,255,255,0.2); color: var(--text-main); background: transparent; padding: 0.6rem 1.4rem; border-radius: 8px; font-size: 0.95rem; }
 .btn--outline:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.4); }
 .btn--full { width: 100%; font-size: 1.2rem; padding: 1.3rem; border-radius: 14px; }
 .btn--large { font-size: 1.15rem; padding: 1.3rem 2.8rem; }
 
-/* 5. الهيرو سيكشن (هدوء وفخامة) */
+/* =========================================
+   4. HERO SECTION (الواجهة وأنيميشن التنفس)
+   ========================================= */
 .hero { padding: 7rem 0 5rem; display: flex; align-items: center; border-bottom: 1px solid var(--border); }
 .hero__grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
 .badge { background: rgba(255,255,255,0.03); color: var(--text-muted); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700; display: inline-block; margin-bottom: 1.5rem; border: 1px solid var(--border); letter-spacing: 0.5px; }
 .hero__title { font-size: 4.2rem; line-height: 1.15; font-weight: 900; margin-bottom: 1.5rem; }
 .hero__subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.8; font-weight: 400; }
-
-/* أنيميشن التنفس البطيء للصورة (Breathing Effect) */
 .hero__image { width: 100%; max-width: 420px; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); animation: slowBreathe 6s ease-in-out infinite; }
-@keyframes slowBreathe {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+
+@keyframes slowBreathe { 
+    0% { transform: translateY(0px); } 
+    50% { transform: translateY(-15px); } 
+    100% { transform: translateY(0px); } 
 }
 
 .trust-badges { display: flex; gap: 1rem; margin-top: 2.5rem; color: #64748b; font-size: 0.9rem; font-weight: 500; align-items: center; flex-wrap: wrap; }
 
-/* 6. الميزات (كروت ناعمة) */
+/* =========================================
+   5. FEATURES (طريقة اللعب)
+   ========================================= */
 .features { padding: 7rem 0; background: #0c121e; border-bottom: 1px solid var(--border); }
 .features__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
 .feature-card { background: var(--bg-card); padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--border); transition: all 0.4s var(--smooth-curve); }
@@ -97,12 +81,13 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .feature-card p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
 
 /* =========================================
-   7. الكاشير والفورم (Tactile & Clean)
+   6. CHECKOUT & FORM (الكاشير والفورم)
    ========================================= */
 .checkout { padding: 7rem 0; }
 .checkout__wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
 .checkout__info h2 { font-size: 2.8rem; font-weight: 900; margin-bottom: 1rem; }
 .checkout__info p { color: var(--text-muted); font-size: 1.15rem; margin-bottom: 2.5rem; }
+
 .price-box { background: linear-gradient(145deg, var(--bg-card), #0f1523); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border); text-align: right; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
 .price-box__old { text-decoration: line-through; color: var(--text-muted); font-size: 1.3rem; display: block; margin-bottom: 0.5rem; }
 .price-box__current { font-size: 4rem; font-weight: 900; color: #fff; display: block; line-height: 1; margin-bottom: 1.2rem; }
@@ -113,16 +98,23 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .form__group { display: flex; flex-direction: column; gap: 0.6rem; }
 .form label { font-weight: 700; color: #e2e8f0; font-size: 0.95rem; }
 
-/* نعومة الحقول عند الكتابة */
+/* الحقول والانتقالات الناعمة */
 .form input, .form textarea, .form select { width: 100%; padding: 1.2rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); background: rgba(0,0,0,0.2); color: #fff; font-family: 'Tajawal', sans-serif; font-size: 1.05rem; transition: all 0.3s var(--smooth-curve); }
 .form input:focus, .form textarea:focus, .form select:focus { outline: none; border-color: var(--primary); background: rgba(0,0,0,0.4); box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.1); }
 
-/* الـ Select المخصوص */
-.form select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%24%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: left 1rem top 50%; background-size: 1rem auto; }
+/* إخفاء أسهم الأرقام الافتراضية المزعجة في المتصفح */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; }
+
+/* تعديل السهم بتاع الـ Select */
+.form select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%24%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394a3b8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E"); background-repeat: no-repeat; background-position: left 1.2rem top 50%; background-size: 1rem auto; cursor: pointer; }
 .form select option { background: #0f1523; color: #fff; padding: 10px; }
 .form__error { color: var(--primary); font-size: 0.85rem; font-weight: 500; display: none; margin-top: 4px; }
 
-/* خيار الهدية (Custom) */
+/* =========================================
+   7. ADD-ONS & QUANTITY (الكاستم والكمية)
+   ========================================= */
 .custom-addon { background: rgba(0,0,0,0.2); border: 1px dashed rgba(255,255,255,0.2); border-radius: 10px; padding: 1.4rem; display: flex; align-items: flex-start; gap: 1rem; cursor: pointer; transition: all 0.3s var(--smooth-curve); }
 .custom-addon:hover { border-color: var(--primary); background: rgba(244, 63, 94, 0.05); }
 .custom-addon input[type="checkbox"] { width: 22px; height: 22px; margin-top: 2px; accent-color: var(--primary); cursor: pointer;}
@@ -130,7 +122,6 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .addon-title { font-weight: 800; color: #fff; font-size: 1.05rem; }
 .addon-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.4; }
 
-/* أزرار الكمية الهادية */
 .quantity-wrapper { display: flex; align-items: center; border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; background: rgba(0,0,0,0.2); width: fit-content; overflow: hidden; }
 .qty-btn { background: transparent; color: #fff; border: none; padding: 1rem 1.6rem; font-size: 1.3rem; cursor: pointer; transition: all 0.3s ease; }
 .qty-btn:hover { background: rgba(255,255,255,0.1); }
@@ -138,13 +129,17 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .quantity-wrapper input { border: none; width: 60px; text-align: center; padding: 1rem 0; background: transparent; font-size: 1.15rem; font-weight: 700; color: #fff; border-right: 1px solid rgba(255,255,255,0.08); border-left: 1px solid rgba(255,255,255,0.08); }
 .quantity-wrapper input:focus { outline: none; }
 
-/* فاتورة الحساب (Receipt Style) */
+/* =========================================
+   8. RECEIPT (فاتورة الحساب)
+   ========================================= */
 .total-price-display { background: rgba(0,0,0,0.25); padding: 1.8rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem; }
 .summary-line { display: flex; justify-content: space-between; font-size: 1.05rem; color: var(--text-muted); }
 .total-line { border-top: 1px dashed rgba(255,255,255,0.1); padding-top: 1rem; color: #fff; font-size: 1.2rem; font-weight: 800; }
 .total-line strong { color: #fff; font-size: 1.6rem; }
 
-/* الفوتر */
+/* =========================================
+   9. FOOTER & FLOATING WA (الفوتر والواتساب)
+   ========================================= */
 .footer { border-top: 1px solid var(--border); padding: 4rem 0 2rem; background: #080c14; }
 .footer__wrapper { display: grid; grid-template-columns: 1fr; gap: 1.5rem; text-align: center; }
 .footer__brand h3 { font-size: 1.5rem; font-weight: 900; margin-bottom: 0.5rem; color: #fff; }
@@ -154,20 +149,19 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
 .social-link:hover { background: #fff; color: #000; }
 .footer__copy { color: #475569; font-size: 0.9rem; margin-top: 2.5rem; }
 
-/* 8. زرار الواتساب (Pulse ناعم ومش مزعج) */
 .floating-wa { position: fixed; bottom: 30px; left: 30px; background-color: var(--whatsapp); width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); z-index: 9999; transition: all 0.4s var(--smooth-curve); animation: softPulse 3s infinite; }
 .floating-wa:hover { transform: scale(1.08) translateY(-5px); box-shadow: 0 10px 25px rgba(37, 211, 102, 0.5); animation: none; }
-@keyframes softPulse {
-    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+
+@keyframes softPulse { 
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); } 
+    70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0); } 
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } 
 }
 
 /* =========================================
-   8. RESPONSIVE DESIGN (تظبيط الموبايل - أندرويد وأيفون)
+   10. RESPONSIVE DESIGN (توافق الموبايل 100%)
    ========================================= */
-
-/* الشاشات المتوسطة (التابلت والموبايلات العريضة) */
+/* الشاشات المتوسطة والتابلت */
 @media (max-width: 992px) {
     .hero__grid, .checkout__wrapper { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
     .hero__title { font-size: 3.2rem; }
@@ -180,46 +174,37 @@ body { font-family: 'Tajawal', sans-serif; background-color: var(--bg-dark); col
     .floating-wa { bottom: 20px; left: 20px; width: 55px; height: 55px; }
 }
 
-/* الشاشات الصغيرة (الأيفون، والأندرويد بكل مقاساته) */
+/* الموبايلات بكل أنواعها (أيفون وأندرويد) */
 @media (max-width: 576px) {
     .container { width: 92%; }
     
-    /* 1. تظبيط الهيدر عشان اللوجو والزرار ميركبوش على بعض */
     .header__logo { height: 40px; }
     .btn--outline { padding: 0.5rem 0.8rem; font-size: 0.85rem; border-radius: 6px; }
     
-    /* 2. تصغير الخطوط عشان متكسرش الشاشة وتخرج براها */
     .hero { padding: 4rem 0 3rem; }
     .hero__title { font-size: 2.2rem; margin-bottom: 1rem; }
     .hero__subtitle { font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6; }
     .section-title { font-size: 1.8rem; margin-bottom: 2rem; }
     
-    /* 3. تظبيط زرار الشراء في الهيرو عشان ياخد عرض الشاشة ويبقى مغري للضغط */
     .btn--large { padding: 1rem 1.5rem; font-size: 1.1rem; width: 100%; display: block; margin: 0 auto; }
     
-    /* 4. تظبيط سكشن الكاستم (الهدية) عشان الكلام ميركبش على الـ Checkbox */
-    .custom-addon { padding: 1rem; gap: 0.8rem; flex-direction: row; align-items: flex-start; }
-    .addon-title { font-size: 0.95rem; line-height: 1.3; }
+    .custom-addon { padding: 1.2rem 1rem; gap: 0.8rem; flex-direction: row; align-items: flex-start; }
+    .addon-title { font-size: 0.95rem; line-height: 1.3; margin-bottom: 0.2rem; display: block;}
     .addon-desc { font-size: 0.8rem; }
     
-    /* 5. تظبيط زرار الكمية (+ و -) عشان يبقى عريض ومريح لصباع المستخدم */
     .quantity-wrapper { width: 100%; display: flex; justify-content: space-between; }
     .qty-btn { padding: 0.8rem 1.2rem; flex: 1; }
     .quantity-wrapper input { flex: 2; width: auto; font-size: 1rem; }
     
-    /* 6. الفورم والتسجيل (مريحة للعين والكتابة) */
     .checkout__form-container { padding: 1.5rem 1rem; border-radius: 12px; }
     .form input, .form textarea, .form select { padding: 0.9rem; font-size: 0.95rem; }
     .form__group { gap: 0.4rem; }
     
-    /* 7. أختام الثقة تحت بعض بمسافات مظبوطة */
     .trust-badges { gap: 0.5rem; font-size: 0.8rem; flex-wrap: wrap; justify-content: center; }
     
-    /* 8. تظبيط أزرار السوشيال ميديا في الفوتر عشان متبقاش ملزقة */
     .footer__socials { flex-wrap: wrap; gap: 0.5rem; }
     .social-link { width: 48%; text-align: center; padding: 0.5rem; font-size: 0.85rem; }
     
-    /* 9. فاتورة الحساب (تصغير الخطوط عشان تناسب الموبايل) */
     .total-price-display { padding: 1.2rem; }
     .summary-line { font-size: 0.95rem; }
     .total-line { font-size: 1.1rem; }
