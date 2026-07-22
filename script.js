@@ -78,7 +78,7 @@ govSelect.addEventListener('change', updatePricing);
 customGiftCheckbox.addEventListener('change', updatePricing);
 
 // ==========================================
-// 5. فلترة رقم الموبايل اللحظية
+// 5. فلترة رقم الموبايل اللحظية (تم تحسين تجربة المستخدم)
 // ==========================================
 phoneInput.addEventListener('input', function() {
     const strictRegex = /^01[0125][0-9]{8}$/;
@@ -86,10 +86,17 @@ phoneInput.addEventListener('input', function() {
     // إجبار المستخدم يكتب أرقام بس (بيمسح أي حروف أو مسافات)
     this.value = this.value.replace(/[^0-9]/g, '');
 
-    if (this.value.length > 0 && !strictRegex.test(this.value)) {
-        phoneError.style.display = 'block';
-        this.style.borderColor = '#f43f5e';
+    // إظهار الخطأ فقط لو كتب 11 رقم وكانوا غلط، عشان ميزعجش العميل وهو لسه بيكتب
+    if (this.value.length === 11) {
+        if (!strictRegex.test(this.value)) {
+            phoneError.style.display = 'block';
+            this.style.borderColor = '#f43f5e'; // أحمر
+        } else {
+            phoneError.style.display = 'none';
+            this.style.borderColor = '#25d366'; // أخضر لو الرقم صح
+        }
     } else {
+        // طول ما هو لسه بيكتب (أقل أو أكتر من 11) بنخفي رسالة الخطأ
         phoneError.style.display = 'none';
         this.style.borderColor = 'rgba(255, 255, 255, 0.08)';
     }
@@ -160,7 +167,7 @@ orderForm.addEventListener('submit', function(e) {
     // توليد كود الأوردر
     const orderId = "ORD-" + Math.floor(10000 + Math.random() * 90000);
 
-    // تجهيز الداتا لجوجل شيت
+    // تجهيز الداتا لجوجل شيت (الأسماء هنا اتظبطت عشان تطابق الشيت بالمللي)
     const formData = new FormData();
     formData.append('orderId', orderId);
     formData.append('fullName', name);
@@ -168,8 +175,8 @@ orderForm.addEventListener('submit', function(e) {
     formData.append('governorate', governorate);
     formData.append('address', address);
     formData.append('quantity', qty);
-    formData.append('isCustom', isCustom ? 'نعم 🎁' : 'لا');
-    formData.append('finalTotal', finalTotal);
+    formData.append('customGift', isCustom ? 'نعم 🎁' : 'لا'); // 👈 تم التصليح هنا
+    formData.append('total', finalTotal); // 👈 وتم التصليح هنا
 
     // تجهيز رسالة الواتساب الأنيقة
     const msg = `طلب جديد - لعبة قعدة\n\nرقم الطلب: #${orderId}\n\nبيانات العميل:\nالاسم: ${name}\nرقم الهاتف: ${phone}\nالمحافظة: ${governorate}\nالعنوان: ${address}\n\nتفاصيل الفاتورة:\nالكمية: ${qty} نسخة\nإضافة (Custom Made): ${isCustom ? 'نعم 🎁' : 'لا'}\nقيمة المنتجات: ${basePrice} ج.م\n${isCustom ? `رسوم الإضافة: ${customCost} ج.م\n` : ''}مصاريف الشحن: ${shippingCost} ج.م\n---\nالإجمالي المطلوب: ${finalTotal} ج.م`;
