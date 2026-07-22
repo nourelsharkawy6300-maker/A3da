@@ -191,29 +191,19 @@ orderForm.addEventListener('submit', function(e) {
     // تسجيل وقت الطلب في المتصفح لمنع السبام
     localStorage.setItem('a3da_last_order', new Date().getTime().toString());
 
-    // 🚀 ضرب عصفورين بحجر: الإرسال للشيت ثم فتح الواتساب
-    fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: formData })
-        .then(response => {
-            window.location.href = whatsappUrl;
-            resetFormAfterSubmit();
-        })
-        .catch(error => {
-            console.error('Error!', error.message);
-            // لو النت بطيء والشيت مسقط، هنحوله برضو للواتس عشان البيعة متضيعش
-            window.location.href = whatsappUrl;
-            resetFormAfterSubmit();
-        });
-
-    // دالة إرجاع الفورم لوضعها الطبيعي بعد الإرسال
-    function resetFormAfterSubmit() {
-        setTimeout(() => {
-            submitBtn.innerHTML = 'تأكيد الطلب';
-            submitBtn.style.opacity = '1';
-            submitBtn.style.pointerEvents = 'auto';
-            orderForm.reset();
-            qtyInput.value = 1;
-            customFeeLine.style.display = "none";
-            updatePricing();
-        }, 2000);
-    }
-});
+  // 🚀 ضرب عصفورين بحجر: الإرسال للشيت ثم فتح الواتساب
+    fetch(GOOGLE_SCRIPT_URL, { 
+        method: 'POST', 
+        body: formData,
+        mode: 'no-cors' // 👈 السطر السحري ده اللي بيمنع المتصفح يعمل بلوك للداتا
+    })
+    .then(response => {
+        window.location.href = whatsappUrl;
+        resetFormAfterSubmit();
+    })
+    .catch(error => {
+        console.error('Error!', error.message);
+        // لو النت بطيء والشيت مسقط، هنحوله برضو للواتس عشان البيعة متضيعش
+        window.location.href = whatsappUrl;
+        resetFormAfterSubmit();
+    });
