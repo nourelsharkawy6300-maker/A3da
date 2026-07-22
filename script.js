@@ -2,7 +2,7 @@
 // 1. الإعدادات الأساسية (الروابط والأرقام)
 // ==========================================
 const SELLER_PHONE = "201066594552"; 
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwCtBxbrI-jbqIFCgJcNyeiKiYzOTIQaNA5R2sgaxptIDsOYfHer2DQiZ5kEvShUrOc/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyMxNCFgB2YSJGm7lmESY8zDLtt3BvVxVPiXYf7xF1_7Kt9OUnJMZjVDLuU9qbSUJc/exec";
 
 // ==========================================
 // 2. ربط عناصر واجهة المستخدم (DOM Elements)
@@ -167,7 +167,7 @@ orderForm.addEventListener('submit', function(e) {
     // توليد كود الأوردر
     const orderId = "ORD-" + Math.floor(10000 + Math.random() * 90000);
 
-    // تجهيز الداتا لجوجل شيت (الأسماء هنا اتظبطت عشان تطابق الشيت بالمللي)
+    // تجهيز الداتا لجوجل شيت 
     const formData = new FormData();
     formData.append('orderId', orderId);
     formData.append('fullName', name);
@@ -175,8 +175,8 @@ orderForm.addEventListener('submit', function(e) {
     formData.append('governorate', governorate);
     formData.append('address', address);
     formData.append('quantity', qty);
-    formData.append('customGift', isCustom ? 'نعم 🎁' : 'لا'); // 👈 تم التصليح هنا
-    formData.append('total', finalTotal); // 👈 وتم التصليح هنا
+    formData.append('customGift', isCustom ? 'نعم 🎁' : 'لا');
+    formData.append('total', finalTotal);
 
     // تجهيز رسالة الواتساب الأنيقة
     const msg = `طلب جديد - لعبة قعدة\n\nرقم الطلب: #${orderId}\n\nبيانات العميل:\nالاسم: ${name}\nرقم الهاتف: ${phone}\nالمحافظة: ${governorate}\nالعنوان: ${address}\n\nتفاصيل الفاتورة:\nالكمية: ${qty} نسخة\nإضافة (Custom Made): ${isCustom ? 'نعم 🎁' : 'لا'}\nقيمة المنتجات: ${basePrice} ج.م\n${isCustom ? `رسوم الإضافة: ${customCost} ج.م\n` : ''}مصاريف الشحن: ${shippingCost} ج.م\n---\nالإجمالي المطلوب: ${finalTotal} ج.م`;
@@ -191,7 +191,7 @@ orderForm.addEventListener('submit', function(e) {
     // تسجيل وقت الطلب في المتصفح لمنع السبام
     localStorage.setItem('a3da_last_order', new Date().getTime().toString());
 
-  // 🚀 ضرب عصفورين بحجر: الإرسال للشيت ثم فتح الواتساب
+    // 🚀 ضرب عصفورين بحجر: الإرسال للشيت ثم فتح الواتساب
     fetch(GOOGLE_SCRIPT_URL, { 
         method: 'POST', 
         body: formData,
@@ -207,6 +207,7 @@ orderForm.addEventListener('submit', function(e) {
         window.location.href = whatsappUrl;
         resetFormAfterSubmit();
     });
+
     // دالة إرجاع الفورم لوضعها الطبيعي بعد الإرسال
     function resetFormAfterSubmit() {
         setTimeout(() => {
