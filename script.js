@@ -207,3 +207,16 @@ orderForm.addEventListener('submit', function(e) {
         window.location.href = whatsappUrl;
         resetFormAfterSubmit();
     });
+    // دالة إرجاع الفورم لوضعها الطبيعي بعد الإرسال
+    function resetFormAfterSubmit() {
+        setTimeout(() => {
+            submitBtn.innerHTML = 'تأكيد الطلب';
+            submitBtn.style.opacity = '1';
+            submitBtn.style.pointerEvents = 'auto';
+            orderForm.reset();
+            qtyInput.value = 1;
+            customFeeLine.style.display = "none";
+            updatePricing();
+        }, 2000);
+    }
+});
