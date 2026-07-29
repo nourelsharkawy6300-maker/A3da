@@ -4,66 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="لعبة قعدة - أول لعبة كروت مبنية على الاستنتاج الاجتماعي. اطلب نسختك الآن.">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#FAF7F2">
     
     <title>لعبة قعدة | الإصدار الرسمي</title>
     
-    <!-- خط تجوال -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <!-- ربط ملف الستايل -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- بانر التحدي -->
     <div class="dare-banner">
         🎯 <strong>تحدي الأسبوع:</strong> العب كارت "الفود بلوجر" في مطعم، صور فيديو واعملنا منشن <span>@a3da.6</span> وهتكسب نسخة هدية! 🎁
     </div>
 
-    <!-- الهيدر -->
     <header class="header">
         <div class="container header__wrapper">
-            <!-- اللوجو -->
-            <img src="logo.png" alt="لعبة قعدة" class="header__logo" onerror="this.src='https://via.placeholder.com/120x50/1e293b/ffffff?text=A3da+Logo'">
+            <img src="logo.png" alt="لعبة قعدة" class="header__logo" onerror="this.src='https://via.placeholder.com/120x50/4F46E5/ffffff?text=A3da+Logo'">
             <a href="#checkout" class="btn btn--outline">اطلب اللعبة</a>
         </div>
     </header>
 
     <main>
-        <!-- قسم الهيرو (الواجهة) مع خلفية اللعبة -->
-        <section class="hero" style="background: linear-gradient(rgba(11, 17, 33, 0.85), rgba(11, 17, 33, 0.95)), url('home-bg.png') center/cover no-repeat;">
-            <div class="container hero__grid">
-                <div class="hero__content">
-                    <span class="badge">الأكثر مبيعاً</span>
-                    <h1 class="hero__title">القعدة العادية بقت <span class="highlight">خطر</span></h1>
-                    <p class="hero__subtitle">أول لعبة كروت مصرية تدمج بين الموبايل والذكاء الاجتماعي. اختار شخصيتك، نفذ المطلوب، واحرص ألا تُكشف.</p>
-                    <a href="#checkout" class="btn btn--primary btn--large">اطلب نسختك الآن</a>
-                    
-                    <div class="trust-badges">
-                        <span>توصيل سريع</span>
-                        <span>•</span>
-                        <span>الدفع عند الاستلام</span>
-                        <span>•</span>
-                        <span>استبدال مجاني</span>
-                    </div>
-                </div>
-                
-                <!-- 🚨 كروت الأنيميشن 3D بالصيغة الصح 🚨 -->
-                <div class="hero__media">
-                    <div class="cards-animation-wrapper">
-                        <!-- ظهر الكارت -->
-                        <img src="card-back.png" alt="ظهر لعبة قعدة" class="animated-card card-back" onerror="this.src='https://via.placeholder.com/240x350/1e293b/ffffff?text=Card+Back'">
-                        <!-- وش الشخصية -->
-                        <img src="character-card-face.png" alt="شخصية اللعبة" class="animated-card card-front" onerror="this.src='https://via.placeholder.com/240x350/f43f5e/ffffff?text=Character'">
-                    </div>
-                </div>
+        <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('home-bg.jpg') center/cover no-repeat;">
+            <div class="container hero__content text-center">
+                <img src="logo.png" alt="لعبة قعدة" class="hero__main-logo">
+                <h1 class="hero__title">اللعبة اللي هتخلي أي قعدة تتحول لحفلة ضحك 😂</h1>
+                <a href="#checkout" class="btn btn--accent btn--large mt-4">اطلب دلوقتي</a>
             </div>
         </section>
 
-        <!-- قسم الميزات وطريقة اللعب -->
+        <section class="quick-stats">
+            <div class="container stats-grid">
+                <div class="stat-card">📦 <span>اللعبة</span></div>
+                <div class="stat-card">😂 <span>200+ كارت</span></div>
+                <div class="stat-card">👥 <span>من 3 لـ10 لاعبين</span></div>
+                <div class="stat-card">⏳ <span>20-40 دقيقة</span></div>
+                <div class="stat-card">🎉 <span>مناسبة للقعدات والسفر</span></div>
+            </div>
+        </section>
+
         <section class="features">
             <div class="container">
-                <h2 class="section-title">طريقة اللعب</h2>
+                <h2 class="section-title">إزاي تلعب؟</h2>
                 <div class="features__grid">
                     <article class="feature-card">
                         <div class="feature-step">01</div>
@@ -84,11 +66,10 @@
             </div>
         </section>
 
-        <!-- قسم نموذج الطلب (الكاشير) -->
         <section id="checkout" class="checkout">
             <div class="container checkout__wrapper">
                 <div class="checkout__info">
-                    <h2>نموذج الطلب</h2>
+                    <h2>أكمل طلبك الآن</h2>
                     <p>أدخل بياناتك بدقة لتأكيد الطلب ومعرفة تكلفة الشحن النهائية.</p>
                     
                     <div class="price-box">
@@ -101,7 +82,6 @@
                 <div class="checkout__form-container">
                     <form id="orderForm" class="form">
                         
-                        <!-- حقل الحماية من البوتات (مخفي) -->
                         <input type="text" name="website_url" id="honeypot" style="display:none !important" tabindex="-1" autocomplete="off">
 
                         <div class="form__group">
@@ -115,7 +95,6 @@
                             <span class="form__error" id="phoneError">الرقم غير صحيح، يجب أن يبدأ بـ 010/011/012/015 ويتكون من 11 رقم.</span>
                         </div>
 
-                        <!-- 🚨 قائمة المحافظات الكاملة بأسعار الشحن 🚨 -->
                         <div class="form__group">
                             <label for="governorate">المحافظة (لتحديد الشحن)</label>
                             <select id="governorate" required>
@@ -155,7 +134,6 @@
                             <textarea id="address" required rows="2" placeholder="المنطقة، الشارع، رقم العقار، رقم الشقة"></textarea>
                         </div>
 
-                        <!-- خيار النسخة المخصصة -->
                         <div class="custom-addon">
                             <input type="checkbox" id="customGift">
                             <label for="customGift">
@@ -164,7 +142,6 @@
                             </label>
                         </div>
 
-                        <!-- أزرار اختيار الكمية -->
                         <div class="form__group">
                             <label>الكمية (خصم تلقائي عند طلب نسختين أو أكثر)</label>
                             <div class="quantity-wrapper">
@@ -174,13 +151,12 @@
                             </div>
                         </div>
 
-                        <!-- إجمالي الفاتورة -->
                         <div class="total-price-display">
                             <div class="summary-line">
                                 <span>قيمة المنتجات:</span>
                                 <span id="productsTotal">199 ج.م</span>
                             </div>
-                            <div class="summary-line" id="customFeeLine" style="display: none; color: #f43f5e;">
+                            <div class="summary-line" id="customFeeLine" style="display: none; color: var(--danger);">
                                 <span>إضافة التخصيص (Custom):</span>
                                 <span id="customTotal">50 ج.م</span>
                             </div>
@@ -194,23 +170,21 @@
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                        <button type="submit" class="btn btn--accent btn--full" id="submitBtn">
                             تأكيد الطلب
                         </button>
-                        <p class="rate-limit-msg" id="rateLimitMsg" style="display: none; color: #f43f5e; text-align: center; margin-top: 10px; font-weight: bold; font-size: 0.9rem;">لقد قمت بإرسال طلب مؤخراً. يرجى الانتظار قليلاً.</p>
+                        <p class="rate-limit-msg" id="rateLimitMsg" style="display: none; color: var(--danger); text-align: center; margin-top: 10px; font-weight: bold; font-size: 0.9rem;">لقد قمت بإرسال طلب مؤخراً. يرجى الانتظار قليلاً.</p>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- الفوتر -->
     <footer class="footer">
         <div class="container footer__wrapper">
             <div class="footer__brand">
-                <img src="logo.png" alt="A3da Logo" style="height: 40px; margin-bottom: 10px;">
+                <img src="logo.png" alt="A3da Logo" style="height: 45px; margin-bottom: 10px; filter: brightness(0) invert(1);">
                 <p>اللعبة الرسمية رقم #1 في مصر.</p>
-                <p style="font-size: 0.8rem; margin-top:5px; color: #64748b;">a3da.ammnly6@gmail.com</p>
             </div>
             <div class="footer__socials">
                 <a href="https://facebook.com/profile.php?id=61591217361287" target="_blank" class="social-link">Facebook</a>
@@ -223,14 +197,12 @@
         </div>
     </footer>
 
-    <!-- زر الواتساب العائم -->
     <a href="https://wa.me/201066594552" class="floating-wa" target="_blank" aria-label="تواصل مع الدعم الفني">
         <svg width="35" height="35" fill="#ffffff" viewBox="0 0 16 16">
             <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
         </svg>
     </a>
 
-    <!-- ربط ملف الجافاسكريبت -->
     <script src="script.js"></script>
 </body>
 </html>
