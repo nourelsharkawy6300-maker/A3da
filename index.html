@@ -46,16 +46,6 @@
         </div>
     </section>
 
-    <section class="cards-preview section-fade">
-        <div class="container">
-            <h2 class="section-title">نظرة على الكروت</h2>
-            <div class="preview-grid">
-                <img src="card-face.jpg" alt="وش الكارت" class="real-card-img">
-                <img src="card-back.jpg" alt="ظهر الكارت" class="real-card-img">
-            </div>
-        </div>
-    </section>
-
     <section id="checkout" class="checkout-section section-fade">
         <div class="container">
             <div class="checkout-box">
@@ -66,43 +56,43 @@
                     
                     <div class="form-group">
                         <label>الاسم بالكامل</label>
-                        <input type="text" id="customerName" name="customerName" placeholder="اكتب اسمك الثلاثي" required>
+                        <input type="text" id="customerName" name="الاسم" placeholder="اكتب اسمك الثلاثي" required>
                     </div>
 
                     <div class="form-group">
                         <label>رقم الموبايل (واتساب)</label>
-                        <input type="tel" id="phone" name="phone" placeholder="01X XXXX XXXX" required>
+                        <input type="tel" id="phone" name="الموبايل" placeholder="01X XXXX XXXX" required>
                         <span id="phoneError" class="error-msg"></span>
                     </div>
 
                     <div class="form-group">
                         <label>المحافظة</label>
-                        <select id="governorate" name="governorate" required>
-                            <option value="">اختر محافظتك...</option>
-                            <option value="القاهرة والجيزة" data-price="50">القاهرة والجيزة (50 ج.م)</option>
-                            <option value="الإسكندرية" data-price="60">الإسكندرية (60 ج.م)</option>
-                            <option value="محافظات الدلتا" data-price="70">محافظات الدلتا (70 ج.م)</option>
-                            <option value="الصعيد" data-price="80">محافظات الصعيد (80 ج.م)</option>
+                        <select id="governorate" name="المحافظة" required>
+                            <option value="" data-price="0">اختر محافظتك...</option>
+                            <option value="القاهرة والجيزة" data-price="40">القاهرة والجيزة (40 ج.م)</option>
+                            <option value="الإسكندرية" data-price="45">الإسكندرية (45 ج.م)</option>
+                            <option value="الدلتا والقناة" data-price="45">الدلتا والقناة (45 ج.م)</option>
+                            <option value="الصعيد" data-price="50">محافظات الصعيد (50 ج.م)</option>
                         </select>
                     </div>
 
                     <div class="form-group">
                         <label>العنوان بالتفصيل</label>
-                        <textarea id="address" name="address" placeholder="الشارع، رقم العمارة، الدور، الشقة، علامة مميزة" required></textarea>
+                        <textarea id="address" name="العنوان" placeholder="الشارع، رقم العمارة، الدور، الشقة، علامة مميزة" required></textarea>
                     </div>
 
                     <div class="form-group row-group">
                         <label>الكمية:</label>
                         <div class="qty-controls">
                             <button type="button" id="decreaseQty" class="qty-btn">-</button>
-                            <input type="text" id="quantity" name="quantity" value="1" readonly>
+                            <input type="number" id="quantity" name="الكمية" value="1" readonly>
                             <button type="button" id="increaseQty" class="qty-btn">+</button>
                         </div>
                     </div>
 
                     <div class="form-group checkbox-group">
-                        <input type="checkbox" id="customGift" name="customGift">
-                        <label for="customGift">تغليف هدية مخصوص (+30 ج.م)</label>
+                        <input type="checkbox" id="customGift">
+                        <label for="customGift">إصدار الهدية (+30 ج.م)</label>
                     </div>
 
                     <div class="receipt">
@@ -126,7 +116,6 @@
                     </div>
 
                     <button type="submit" id="submitBtn" class="btn btn-primary btn-block">تأكيد الطلب عبر واتساب</button>
-                    <div id="rateLimitMsg" class="error-msg text-center"></div>
                 </form>
             </div>
         </div>
