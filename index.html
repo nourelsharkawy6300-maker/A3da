@@ -2,206 +2,139 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="لعبة قعدة - أول لعبة كروت مبنية على الاستنتاج الاجتماعي. اطلب نسختك الآن.">
-    <meta name="theme-color" content="#FAF7F2">
-    
-    <title>لعبة قعدة | الإصدار الرسمي</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قعدة - اللعبة اللي هتبوظ شلتكم!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="dare-banner">
-        🎯 <strong>تحدي الأسبوع:</strong> العب كارت "الفود بلوجر" في مطعم، صور فيديو واعملنا منشن <span>@a3da.6</span> وهتكسب نسخة هدية! 🎁
-    </div>
-
-    <header class="header">
-        <div class="container header__wrapper">
-            <img src="logo.png" alt="لعبة قعدة" class="header__logo" onerror="this.src='https://via.placeholder.com/120x50/4F46E5/ffffff?text=A3da+Logo'">
-            <a href="#checkout" class="btn btn--outline">اطلب اللعبة</a>
+    <header class="hero section-fade">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <img src="logo.png" alt="لوجو قعدة" class="hero-logo">
+            <h1 class="hero-title">اللعبة اللي هتخلي أي قعدة تتحول لحفلة ضحك 😂</h1>
+            <p class="hero-subtitle">أكتر من 200 كارت من المواقف والأكشن والمقالب اللي هتقلب الترابيزة.</p>
+            <a href="#checkout" class="btn btn-primary">اطلب دلوقتي</a>
         </div>
     </header>
 
-    <main>
-        <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)), url('home-bg.jpg') center/cover no-repeat;">
-            <div class="container hero__content text-center">
-                <img src="logo.png" alt="لعبة قعدة" class="hero__main-logo">
-                <h1 class="hero__title">اللعبة اللي هتخلي أي قعدة تتحول لحفلة ضحك 😂</h1>
-                <a href="#checkout" class="btn btn--accent btn--large mt-4">اطلب دلوقتي</a>
+    <section class="features section-fade">
+        <div class="container features-grid">
+            <div class="feature-card">
+                <span class="feature-emoji">📦</span>
+                <h3>اللعبة الأصلية</h3>
+                <p>جودة طباعة بريميوم تعيش معاك</p>
             </div>
-        </section>
-
-        <section class="quick-stats">
-            <div class="container stats-grid">
-                <div class="stat-card">📦 <span>اللعبة</span></div>
-                <div class="stat-card">😂 <span>200+ كارت</span></div>
-                <div class="stat-card">👥 <span>من 3 لـ10 لاعبين</span></div>
-                <div class="stat-card">⏳ <span>20-40 دقيقة</span></div>
-                <div class="stat-card">🎉 <span>مناسبة للقعدات والسفر</span></div>
+            <div class="feature-card">
+                <span class="feature-emoji">😂</span>
+                <h3>200+ كارت</h3>
+                <p>مواقف، أكشن، وفخاخ متخلصش</p>
             </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <h2 class="section-title">إزاي تلعب؟</h2>
-                <div class="features__grid">
-                    <article class="feature-card">
-                        <div class="feature-step">01</div>
-                        <h3>اسحب الكارت</h3>
-                        <p>اسحب كارت وافحص الرمز (QR Code) بكاميرا هاتفك لمعرفة هويتك السرية.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-step">02</div>
-                        <h3>تقمص الشخصية</h3>
-                        <p>تعامل بطبيعتك، ولكن ادمج كلمات شخصيتك في وسط الحديث دون أن يلاحظك أحد.</p>
-                    </article>
-                    <article class="feature-card">
-                        <div class="feature-step">03</div>
-                        <h3>اكتشفهم</h3>
-                        <p>إذا لاحظت أن أحدهم يتقمص شخصية، اكشفه فوراً. الخطأ في التخمين سيكلفك عقاباً.</p>
-                    </article>
-                </div>
+            <div class="feature-card">
+                <span class="feature-emoji">👥</span>
+                <h3>3 لـ 10 لاعبين</h3>
+                <p>مناسبة للشلل الصغيرة والكبيرة</p>
             </div>
-        </section>
-
-        <section id="checkout" class="checkout">
-            <div class="container checkout__wrapper">
-                <div class="checkout__info">
-                    <h2>أكمل طلبك الآن</h2>
-                    <p>أدخل بياناتك بدقة لتأكيد الطلب ومعرفة تكلفة الشحن النهائية.</p>
-                    
-                    <div class="price-box">
-                        <span class="price-box__old">250 ج.م</span>
-                        <span class="price-box__current">199 ج.م</span>
-                        <span class="price-box__tag">سعر مخفض للنسخة</span>
-                    </div>
-                </div>
-
-                <div class="checkout__form-container">
-                    <form id="orderForm" class="form">
-                        
-                        <input type="text" name="website_url" id="honeypot" style="display:none !important" tabindex="-1" autocomplete="off">
-
-                        <div class="form__group">
-                            <label for="fullName">الاسم بالكامل</label>
-                            <input type="text" id="fullName" required placeholder="الاسم ثلاثي">
-                        </div>
-
-                        <div class="form__group">
-                            <label for="phone">رقم الهاتف</label>
-                            <input type="tel" id="phone" required placeholder="010XXXXXXXX" pattern="^01[0125][0-9]{8}$" maxlength="11">
-                            <span class="form__error" id="phoneError">الرقم غير صحيح، يجب أن يبدأ بـ 010/011/012/015 ويتكون من 11 رقم.</span>
-                        </div>
-
-                        <div class="form__group">
-                            <label for="governorate">المحافظة (لتحديد الشحن)</label>
-                            <select id="governorate" required>
-                                <option value="" data-shipping="0" disabled selected>اختر المحافظة...</option>
-                                <option value="القاهرة" data-shipping="45">القاهرة (45 ج.م)</option>
-                                <option value="الجيزة" data-shipping="45">الجيزة (45 ج.م)</option>
-                                <option value="الإسكندرية" data-shipping="55">الإسكندرية (55 ج.م)</option>
-                                <option value="القليوبية" data-shipping="55">القليوبية (55 ج.م)</option>
-                                <option value="المنوفية" data-shipping="60">المنوفية (60 ج.م)</option>
-                                <option value="الغربية" data-shipping="60">الغربية - طنطا (60 ج.م)</option>
-                                <option value="الشرقية" data-shipping="60">الشرقية - الزقازيق (60 ج.م)</option>
-                                <option value="الدقهلية" data-shipping="60">الدقهلية - المنصورة (60 ج.م)</option>
-                                <option value="كفر الشيخ" data-shipping="60">كفر الشيخ (60 ج.م)</option>
-                                <option value="البحيرة" data-shipping="60">البحيرة - دمنهور (60 ج.م)</option>
-                                <option value="دمياط" data-shipping="65">دمياط (65 ج.م)</option>
-                                <option value="بورسعيد" data-shipping="65">بورسعيد (65 ج.م)</option>
-                                <option value="الإسماعيلية" data-shipping="65">الإسماعيلية (65 ج.م)</option>
-                                <option value="السويس" data-shipping="65">السويس (65 ج.م)</option>
-                                <option value="الفيوم" data-shipping="70">الفيوم (70 ج.م)</option>
-                                <option value="بني سويف" data-shipping="70">بني سويف (70 ج.م)</option>
-                                <option value="المنيا" data-shipping="80">المنيا (80 ج.م)</option>
-                                <option value="أسيوط" data-shipping="80">أسيوط (80 ج.م)</option>
-                                <option value="سوهاج" data-shipping="90">سوهاج (90 ج.م)</option>
-                                <option value="قنا" data-shipping="90">قنا (90 ج.م)</option>
-                                <option value="الأقصر" data-shipping="100">الأقصر (100 ج.م)</option>
-                                <option value="أسوان" data-shipping="100">أسوان (100 ج.م)</option>
-                                <option value="البحر الأحمر" data-shipping="110">البحر الأحمر - الغردقة (110 ج.م)</option>
-                                <option value="مطروح" data-shipping="110">مرسى مطروح (110 ج.م)</option>
-                                <option value="الوادي الجديد" data-shipping="120">الوادي الجديد (120 ج.م)</option>
-                                <option value="شمال سيناء" data-shipping="120">شمال سيناء - العريش (120 ج.م)</option>
-                                <option value="جنوب سيناء" data-shipping="120">جنوب سيناء - شرم الشيخ (120 ج.م)</option>
-                            </select>
-                        </div>
-
-                        <div class="form__group">
-                            <label for="address">العنوان بالتفصيل</label>
-                            <textarea id="address" required rows="2" placeholder="المنطقة، الشارع، رقم العقار، رقم الشقة"></textarea>
-                        </div>
-
-                        <div class="custom-addon">
-                            <input type="checkbox" id="customGift">
-                            <label for="customGift">
-                                <span class="addon-title">🎁 إصدار الهدية Custom (+50 ج.م للعلبة)</span>
-                                <span class="addon-desc">اطبع كارتين مخصوصين باسم وصورة صاحبك جوه العلبة</span>
-                            </label>
-                        </div>
-
-                        <div class="form__group">
-                            <label>الكمية (خصم تلقائي عند طلب نسختين أو أكثر)</label>
-                            <div class="quantity-wrapper">
-                                <button type="button" id="decreaseQty" class="qty-btn">-</button>
-                                <input type="number" id="quantity" value="1" min="1" max="20" readonly>
-                                <button type="button" id="increaseQty" class="qty-btn">+</button>
-                            </div>
-                        </div>
-
-                        <div class="total-price-display">
-                            <div class="summary-line">
-                                <span>قيمة المنتجات:</span>
-                                <span id="productsTotal">199 ج.م</span>
-                            </div>
-                            <div class="summary-line" id="customFeeLine" style="display: none; color: var(--danger);">
-                                <span>إضافة التخصيص (Custom):</span>
-                                <span id="customTotal">50 ج.م</span>
-                            </div>
-                            <div class="summary-line">
-                                <span>مصاريف الشحن:</span>
-                                <span id="shippingTotal">0 ج.م</span>
-                            </div>
-                            <div class="summary-line total-line">
-                                <span>الإجمالي المطلوب:</span>
-                                <strong id="dynamicTotal">199 ج.م</strong>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn--accent btn--full" id="submitBtn">
-                            تأكيد الطلب
-                        </button>
-                        <p class="rate-limit-msg" id="rateLimitMsg" style="display: none; color: var(--danger); text-align: center; margin-top: 10px; font-weight: bold; font-size: 0.9rem;">لقد قمت بإرسال طلب مؤخراً. يرجى الانتظار قليلاً.</p>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer__wrapper">
-            <div class="footer__brand">
-                <img src="logo.png" alt="A3da Logo" style="height: 45px; margin-bottom: 10px; filter: brightness(0) invert(1);">
-                <p>اللعبة الرسمية رقم #1 في مصر.</p>
-            </div>
-            <div class="footer__socials">
-                <a href="https://facebook.com/profile.php?id=61591217361287" target="_blank" class="social-link">Facebook</a>
-                <a href="https://www.instagram.com/a3da.6" target="_blank" class="social-link">Instagram</a>
-                <a href="https://www.tiktok.com/@a3da.6" target="_blank" class="social-link">TikTok</a>
-            </div>
-            <div class="footer__copy">
-                &copy; 2026 لعبة قعدة. جميع الحقوق محفوظة.
+            <div class="feature-card">
+                <span class="feature-emoji">⏳</span>
+                <h3>20-40 دقيقة</h3>
+                <p>وقت الجيم الواحد عشان متزهقوش</p>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <a href="https://wa.me/201066594552" class="floating-wa" target="_blank" aria-label="تواصل مع الدعم الفني">
-        <svg width="35" height="35" fill="#ffffff" viewBox="0 0 16 16">
-            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-        </svg>
-    </a>
+    <section class="cards-preview section-fade">
+        <div class="container">
+            <h2 class="section-title">نظرة على الكروت</h2>
+            <div class="preview-grid">
+                <img src="card-face.jpg" alt="وش الكارت" class="real-card-img">
+                <img src="card-back.jpg" alt="ظهر الكارت" class="real-card-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="checkout" class="checkout-section section-fade">
+        <div class="container">
+            <div class="checkout-box">
+                <h2 class="checkout-title">اطلب قعدة دلوقتي 🎲</h2>
+                <p class="checkout-desc">أسرع وأضمن طريقة لتأكيد طلبك.</p>
+                
+                <form id="orderForm" class="order-form">
+                    
+                    <div class="form-group">
+                        <label>الاسم بالكامل</label>
+                        <input type="text" id="customerName" name="customerName" placeholder="اكتب اسمك الثلاثي" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>رقم الموبايل (واتساب)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="01X XXXX XXXX" required>
+                        <span id="phoneError" class="error-msg"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label>المحافظة</label>
+                        <select id="governorate" name="governorate" required>
+                            <option value="">اختر محافظتك...</option>
+                            <option value="القاهرة والجيزة" data-price="50">القاهرة والجيزة (50 ج.م)</option>
+                            <option value="الإسكندرية" data-price="60">الإسكندرية (60 ج.م)</option>
+                            <option value="محافظات الدلتا" data-price="70">محافظات الدلتا (70 ج.م)</option>
+                            <option value="الصعيد" data-price="80">محافظات الصعيد (80 ج.م)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>العنوان بالتفصيل</label>
+                        <textarea id="address" name="address" placeholder="الشارع، رقم العمارة، الدور، الشقة، علامة مميزة" required></textarea>
+                    </div>
+
+                    <div class="form-group row-group">
+                        <label>الكمية:</label>
+                        <div class="qty-controls">
+                            <button type="button" id="decreaseQty" class="qty-btn">-</button>
+                            <input type="text" id="quantity" name="quantity" value="1" readonly>
+                            <button type="button" id="increaseQty" class="qty-btn">+</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="customGift" name="customGift">
+                        <label for="customGift">تغليف هدية مخصوص (+30 ج.م)</label>
+                    </div>
+
+                    <div class="receipt">
+                        <div class="receipt-line">
+                            <span>المنتجات:</span>
+                            <span id="productsTotal">250 ج.م</span>
+                        </div>
+                        <div class="receipt-line">
+                            <span>الشحن:</span>
+                            <span id="shippingTotal">0 ج.م</span>
+                        </div>
+                        <div class="receipt-line" id="customFeeLine" style="display: none;">
+                            <span>تغليف الهدية:</span>
+                            <span id="customTotal">30 ج.م</span>
+                        </div>
+                        <hr>
+                        <div class="receipt-line total">
+                            <span>الإجمالي:</span>
+                            <span id="dynamicTotal">250 ج.م</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary btn-block">تأكيد الطلب عبر واتساب</button>
+                    <div id="rateLimitMsg" class="error-msg text-center"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 قعدة. جميع الحقوق محفوظة.</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
