@@ -232,16 +232,11 @@ input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; marg
 footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 0.9rem; }
 
 /* =========================================
-   6. ANIMATIONS (حركة ناعمة بدون دوشة)
+   6. حل مشكلة الشاشة البيضا
    ========================================= */
 .section-fade {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-.section-fade.visible {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1 !important; /* دي اللي هتنور الموقع وتظهر كل حاجة */
+    transform: translateY(0) !important;
 }
 
 /* للموبايل */
