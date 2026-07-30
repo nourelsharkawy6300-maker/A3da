@@ -83,17 +83,22 @@ orderForm.addEventListener('submit', function(e) {
     submitBtn.style.opacity = '0.7';
     submitBtn.style.pointerEvents = 'none';
 
-    // تجهيز الداتا للشيت
+    // تجهيز الداتا من الفورم
     const formData = new FormData(orderForm);
     const { finalTotal, isGift } = calculateTotal();
     
-    // إنشاء رقم الطلب بصيغة (ORD-XXXXX) زي اللي في الشيت بتاعك
+    // إنشاء رقم الطلب
     const orderId = 'ORD-' + Math.floor(10000 + Math.random() * 90000);
     
-    // إضافة البيانات الإضافية بالأسماء اللي الشيت مستنيها بالظبط!
     formData.append('رقم الطلب', orderId);
     formData.append('الإجمالي', finalTotal);
     formData.append('إصدار الهدية', isGift ? 'نعم 🎁' : 'لا');
+
+    // 🚨 الحل السحري: تحويل البيانات لصيغة (URLSearchParams) عشان جوجل شيت يقبلها غصب عنه 🚨
+    const urlParams = new URLSearchParams();
+    for (const pair of formData.entries()) {
+        urlParams.append(pair[0], pair[1]);
+    }
 
     // تجهيز رسالة الواتساب
     const customerName = formData.get('الاسم');
@@ -105,11 +110,14 @@ orderForm.addEventListener('submit', function(e) {
     const encodedMsg = encodeURIComponent(msg);
     const whatsappUrl = `https://wa.me/${SELLER_PHONE}?text=${encodedMsg}`;
 
-    // الإرسال لجوجل شيت بدون بلوك
+    // الإرسال لجوجل شيت بالصيغة الجديدة المُجبرة
     fetch(GOOGLE_SCRIPT_URL, { 
         method: 'POST', 
-        body: formData,
-        mode: 'no-cors'
+        body: urlParams, // بعتنا الداتا بعد التغليف
+        mode: 'no-cors',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded' // بنعرف جوجل إننا باعتين داتا سليمة
+        }
     })
     .then(() => {
         window.location.href = whatsappUrl;
